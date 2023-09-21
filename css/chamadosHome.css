@@ -1,0 +1,94 @@
+.maindiv{
+    font-family: sans-serif;
+    display: flex;
+    width: 100%;
+    
+    justify-content: center ;
+    align-items: center;
+}
+
+#table{
+    display: flex;
+    width: 100%;
+    justify-content: center ;
+
+}
+table{
+ width: 50%;
+ border-collapse: collapse;
+ 
+}
+
+th, td{
+    
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+button{
+    margin: 5px;
+
+}
+
+tr{
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+tr:hover{
+    background-color: rgba(0, 0, 0, 0.151);
+}
+
+#cadastroChamados{
+    height: 50%;
+}
+
+#validacaoback{
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.301);
+    margin: 0;
+    padding: 0;
+    
+}
+
+#window{
+    text-align: center;
+    display: grid;
+    background-color: rgb(183, 204, 202);
+    height: 15%;
+    width: 15%;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.534);
+    align-content: end;
+    
+}
+
+.validation_button{
+    margin: 15px;
+    width: 27%;
+}
+
+p{  
+
+    height: 10%;
+    width: 80%;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10%;
+    
+    
+    
+    
+    
+}
+
