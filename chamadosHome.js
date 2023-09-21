@@ -7,9 +7,6 @@ function validation(chamadoid, event){
     botaosim = document.getElementById("validation_sim");
     botaonao = document.getElementById("validation_nao");
 
-
-
-
     botaonao.addEventListener("click", function(){
         validacaoback.style.display = "none";
         return false;

@@ -6,13 +6,7 @@ if (!isset($_SESSION['id'])){
     header("location: login.php");
 }
 
-$servidor = "localhost";
-$userbd = "root";
-$senhabd = "";
-$bancodedados = "app";
-
-$conectar = new mysqli($servidor, $userbd, $senhabd, $bancodedados);
-
+include("conectaBanco.php");
 
 //busca o chamado com um post da página anterior.
 if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['chamado_id'])){

@@ -1,20 +1,12 @@
 <?php
 session_start();
-
+include("conectaBanco.php");
 if (isset($_SESSION['id'])){
     session_destroy();
     unset($_SESSION['id']);
     unset($_SESSION['nome']);
     unset($_SESSION['email']);
 }
-
-
-$servidor = "localhost";
-$userbd = "root";
-$senhabd = "";
-$bancodedados = "app";
-
-$conectar = new mysqli($servidor, $userbd, $senhabd, $bancodedados);
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 

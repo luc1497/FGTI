@@ -6,12 +6,7 @@ if (!isset($_SESSION['id'])){
     header("location: login.php");
 }
 
-$servidor = "localhost";
-$userbd = "root";
-$senhabd = "";
-$bancodedados = "app";
-
-$conectar = new mysqli($servidor, $userbd, $senhabd, $bancodedados);
+include("conectaBanco.php");
 
 
     $user_id = $_SESSION['id'];

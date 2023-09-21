@@ -1,10 +1,5 @@
 <?php
-$servidor = "localhost";
-$userbd = "root";
-$senhabd = "";
-$bancodedados = "app";
-
-$conectar = new mysqli($servidor, $userbd, $senhabd, $bancodedados);
+include("conectaBanco.php");
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 

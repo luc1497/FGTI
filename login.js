@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     var formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", function(event){
-        event.preventDefault();
+    event.preventDefault();
 
         var login = {
             "email" : document.getElementById("email").value,
