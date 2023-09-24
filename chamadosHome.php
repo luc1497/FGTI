@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('America/Recife');
 if (!isset($_SESSION['id'])){
     session_destroy();
-    header("location: login.php");
+    header("location: index.php");
 }
 
 include("conectaBanco.php");

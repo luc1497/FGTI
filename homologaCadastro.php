@@ -8,7 +8,7 @@
 <body>
     <div>
         <h1>Parabéns, seu cadastro foi concluído</h1>
-        <button><a href="login.php">Fazer Login</a></button>
+        <button><a href="index.php">Fazer Login</a></button>
     </div>
 </body>
 </html>
