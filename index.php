@@ -30,7 +30,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
             header("location: /root/appHome.php");
             
         }else{
-            header("location: apphome.php");
+            header("location: appHome.php");
 
         }
         
