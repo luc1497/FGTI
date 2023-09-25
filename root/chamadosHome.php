@@ -1,6 +1,11 @@
 <?php
 session_start();
 date_default_timezone_set('America/Recife');
+if (!$_SESSION['root'] == 1){
+    session_destroy();
+    header("location: index.php");
+}
+
 if (!isset($_SESSION['id'])){
     session_destroy();
     header("location: index.php");
@@ -11,7 +16,7 @@ include("conectaBanco.php");
 
     $user_id = $_SESSION['id'];
 
-    $consulta = "SELECT * FROM chamados WHERE user_id = '$user_id' ORDER BY id ASC;";
+    $consulta = "SELECT * FROM chamados ORDER BY id ASC;";
     $retornodaconsulta = $conectar->query($consulta);
     $qtdresultado = $retornodaconsulta->num_rows;
 
@@ -22,7 +27,7 @@ if (isset($_SESSION['chamado_id'])){
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         $remover = "DELETE FROM chamados WHERE id = '$_POST[chamado_id]'";
         $conectar->query($remover);
-        header("location: chamadosHome.php");
+        header("location: chamadosHome.php.php");
 
 
     }
@@ -41,13 +46,13 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamados | Home</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/chamadosHome.css">
     <script src="chamadosHome.js"></script>
 </head>
 <body>
     <div class="maindiv">
-        <h1>Sua lista de chamados abertos</h1>
+        <h1>Lista de chamados abertos</h1>
         <button id="cadastroChamados.php"><a href="cadastroChamados.php">Cadastrar Chamado</a></button>
         <button id="cadastroChamados.php"><a href="appHome.php">Home</a></button>
     </div>
@@ -70,8 +75,13 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                         $diascorridos = $diferenca->days;
                         
                         $dataexibir = date_format($datachamado, 'd/m/Y H:i');
+                        
 
-                        echo "<tr class='chamado'>";
+
+
+
+
+                        echo "<tr>";
                         echo "<td>".$chamado['id']."</td>";
                         echo "<td>".$chamado['titulo']."</td>";
                         echo "<td>".$chamado['status']."</td>";
@@ -88,36 +98,18 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 
                         }
                         
-                        if ($chamado['status'] == "Finalizado"){
-                            
-                            echo "
-                                    <td>
-                                    <form method = 'POST' action=''>
-                                    <input type='hidden' name='chamadoId' value='$chamado[id]'>
-                                    <input type='submit' id='concluir' name='concluir' value='Concluir chamado'>
-                                    </form>
+                        echo"
+                                <td>
+                                <form method='POST' action='cadastroChamados.php'>
+                                <input type='submit' name='editar' value='Editar'>
+                                <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                                </form>
+                                <form method='POST' action='#' onsubmit='return validation($chamado[id], event);' id='delete_form$chamado[id]'>
+                                <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                                <input type='submit' name='excluir' value='Excluir' id='botao_excluir' >
+                                </form>
+                            ";
 
-
-
-                                 ";
-
-
-                        }else{
-                            
-                            echo "
-                                    <td>
-                                    <form method='POST' action='cadastroChamados.php'>
-                                    <input type='submit' name='editar' value='Editar'>
-                                    <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                                    </form>
-                                    <form method='POST' action='#' onsubmit='return validation($chamado[id], event);' id='delete_form$chamado[id]'>
-                                    <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                                    <input type='submit' name='excluir' value='Excluir' id='botao_excluir' >
-                                    </form>
-                                ";
-                                
-                        }
-                            
                         echo "</tr>";
                     }                    
                 ?>
@@ -133,18 +125,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 <button id="validation_sim" class="validation_button">Sim</button>
                 <button id="validation_nao" class="validation_button">Não</button>
             </div>
-        </div>
-    </div>
-
-    <div id="validacaoback" class="validacao">
-        <div id="window" class="validacao">
-            <div class="maindiv">
-                <p>Deseja apagar o item selecionado?</p>
-            </div>
-            <div class="maindiv">
-                <button id="validation_sim" class="validation_button">Sim</button>
-                <button id="validation_nao" class="validation_button">Não</button>
-            </div>
+            
         </div>
     </div>
 </body>

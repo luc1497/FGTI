@@ -20,15 +20,11 @@ table{
 }
 
 th, td{
+    
     padding: 5px;
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
-}
-
-.chamado{
-    
-    height: 50px;
 }
 
 button{
@@ -38,7 +34,6 @@ button{
 
 tr{
     background-color: rgba(255, 255, 255, 0.226);
-    
 }
 
 tr:hover{

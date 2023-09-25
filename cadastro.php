@@ -1,14 +1,15 @@
 <?php
 include("conectaBanco.php");
-
+date_default_timezone_set('America/Recife');
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $dataatual = date('Y-m-d H-i-s');
 
-    $escrita = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+    $escrita = "INSERT INTO usuarios (nome, email, senha, datacriacao, root) VALUES ('$nome', '$email', '$senha', '$dataatual', 0)";
     $realizarescrita = $conectar->query($escrita);
     
     if ($realizarescrita){

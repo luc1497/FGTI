@@ -1,0 +1,104 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(44, 43, 43, 0.568);
+}
+.back{
+    
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.card{
+    display: flex;
+    background-color: rgba(47, 20, 110, 0.685);
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.89);
+}
+
+form{
+    color: white;
+    font-family:sans-serif;
+    padding: 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+input{
+    
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    
+}
+#botao{
+    background-color: rgba(31, 170, 31, 0.774);
+    outline: none;
+    border: none;
+}
+
+.input_text{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    
+}
+
+.input_text:focus{
+
+    outline: none;
+    text-align: center;
+    
+}
+
+button{
+    background-color: rgb(92, 112, 228);
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    
+}
+
+
+a{
+    text-decoration: none;
+    width: 100%;
+    color: black;
+}
+
+p{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    color: rgb(219, 35, 35);
+}
+
+
+
+
