@@ -28,15 +28,16 @@ if (!isset($_SESSION['id'])){
                 <p><?php echo $_SESSION['nome'];?></p>
             </div>    
         </div>
-
-    <div class="nav_right">
-        <div class="nav_item_right">
-            <a href="logout.php">Logout</a>
+        <div>
+            <p>Administrador</p>
         </div>
-    </div>
-    
-        
+        <div class="nav_right">
+            <div class="nav_item_right">
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>    
    </nav>
+
    <div class="back">
        <a href="/root/chamadosHome.php">
             <div class="card">
