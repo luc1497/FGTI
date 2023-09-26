@@ -32,7 +32,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
     $id = $_POST['concluir_id'];
     $updateConcluir = "UPDATE chamados SET status = 'Concluído' WHERE id = '$id' ";
     $update = $conectar->query($updateConcluir);
-    header("chamadosHome.php");
+    header("location: chamadosHome.php");
 
 }
 
@@ -97,7 +97,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                             echo "
                             <td>
                             </form>
-                            <form method='POST' action='#' onsubmit='return concluir($chamado[id], event);' id='concluirForm$chamado[id]'>
+                            <form method='POST' action='' onsubmit='return concluir($chamado[id], event);' id='concluirForm$chamado[id]'>
                             <input type='hidden' name='concluir_id' value='$chamado[id]'>
                             <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir' >
                             </form>
