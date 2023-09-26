@@ -32,7 +32,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['chamado_id'])){
 //cadastra o chamado
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     if(!isset($_POST['chamado_id'])){
-
+        $user_name = $_SESSION['nome'];
         $user_id = $_SESSION['id'];
         $titulo = $_POST['titulo'];
         $descricao = $_POST['descricao'];
@@ -40,7 +40,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         
     
 
-        $escrita = "INSERT INTO chamados (user_id, titulo, descricao, status, datacriacao) VALUES ('$user_id', '$titulo', '$descricao', 'Pendente', '$dataatual')";
+        $escrita = "INSERT INTO chamados (user_id, titulo, descricao, status, datacriacao, user_name) VALUES ('$user_id', '$titulo', '$descricao', 'Pendente', '$dataatual', '$user_name')";
         $realizarescrita = $conectar->query($escrita);
         
         $busca = "SELECT * FROM chamados WHERE datacriacao = '$dataatual'";

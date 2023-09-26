@@ -60,6 +60,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         <table>
             <thead>
                 <th>ID</th>
+                <th>Usuário</th>
                 <th>Título</th>
                 <th>Status</th>
                 <th>Criado em</th>
@@ -78,11 +79,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                         
 
 
-
-
-
                         echo "<tr>";
                         echo "<td>".$chamado['id']."</td>";
+                        echo "<td>".$chamado['user_name']."</td>";
                         echo "<td>".$chamado['titulo']."</td>";
                         echo "<td>".$chamado['status']."</td>";
                         echo "<td>".$dataexibir."</td>";

@@ -64,6 +64,21 @@ tr:hover{
     
 }
 
+#concluirback{
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.301);
+    margin: 0;
+    padding: 0;
+    
+}
+
 #window{
     text-align: center;
     display: grid;

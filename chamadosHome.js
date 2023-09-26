@@ -1,11 +1,11 @@
 function validation(chamadoid, event){
     event.preventDefault();
     console.log(chamadoid);
-    validacaoback = document.getElementById("validacaoback");
+    var validacaoback = document.getElementById("validacaoback");
     validacaoback.style.display = "flex";
     
-    botaosim = document.getElementById("validation_sim");
-    botaonao = document.getElementById("validation_nao");
+    var botaosim = document.getElementById("validation_sim");
+    var botaonao = document.getElementById("validation_nao");
 
     botaonao.addEventListener("click", function(){
         validacaoback.style.display = "none";
@@ -19,12 +19,33 @@ function validation(chamadoid, event){
         delete_form = document.getElementById("delete_form" + chamadoid);
         delete_form.submit();
         
-            
-
-        
     })
     
     
 
 }
+
+function concluir(id, event){
+    event.preventDefault();
+    var concluirback = document.getElementById("concluirback");
+    concluirback.style.display = "flex";
+
+    var botaosim = document.getElementById("concluir_sim");
+    var botaonao = document.getElementById("concluir_nao");
+
+
+    botaosim.addEventListener("click", function(){
+        concluirback.style.display = "none";
+        formeconcluir = document.getElementById("concluirForm" + id);
+        formeconcluir.submit();
+    })
+
+
+    botaonao.addEventListener("click", function(){
+        concluirback.style.display = "none";
+        return false;
+        
+    })
     
+    
+}
