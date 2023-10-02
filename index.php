@@ -55,6 +55,15 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <body> 
     <div class="back">
         <div class="card">
+            <div id="innercard_a">
+                <P class="innercard_text">Seja bem-vindo ao</P>
+                <h1 id="fgti">FGTI</h1>
+                <P class="innercard_text">Não possui um login?</P>
+                <a href="cadastro.php"><button>Cadastre-se</button></a>
+            </div>
+           
+            <div id="innercard">
+                <h1 id="loginName">LOGIN</h1>
                 <form method="POST" action="" id="formulario">
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" class="input_text">
@@ -62,11 +71,12 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" name="senha" class="input_text">
                     <p id="tagp_senhaerror"></p>
-                    <input type="submit" id="botao" value="Enviar">
-                    <button><a href="cadastro.php">Cadastrar</a></button>
+                    <input type="submit" id="botao" value="Entrar">
                     <p id="tagp_loginerror"></p>
                 </form>
+
             </div>
+        </div>
     </div> 
     
 </body>
