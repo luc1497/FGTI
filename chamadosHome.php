@@ -55,7 +55,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
         <button id="cadastroChamados.php"><a href="cadastroChamados.php">Cadastrar Chamado</a></button>
         <button id="cadastroChamados.php"><a href="appHome.php">Home</a></button>
     </div>
-    <div id="table" class="maindiv">
+    <div id="tableback" class="maindiv">
         <table>
             <thead>
                 <th>ID</th>

@@ -7,42 +7,33 @@
     align-items: center;
 }
 
-#table{
+#tableback{
+    background-color: bisque;
     display: flex;
     width: 100%;
     justify-content: center ;
-
 }
+
 table{
- width: 50%;
- border-collapse: collapse;
- 
-}
-
-th, td{
-    padding: 5px;
-    border: 1px solid black;
     border-collapse: collapse;
-    text-align: center;
+    width: 80%;
 }
 
-.chamado{
+tr{
+    background-color: rgb(94, 196, 255);
+    border-bottom: 25px solid rgba(240, 255, 255, 0);
     
-    height: 50px;
+    width: 100%;
+}
+
+
+td{
+    text-align: center;
 }
 
 button{
     margin: 5px;
 
-}
-
-tr{
-    background-color: rgba(255, 255, 255, 0.226);
-    
-}
-
-tr:hover{
-    background-color: rgba(0, 0, 0, 0.151);
 }
 
 #cadastroChamados{
