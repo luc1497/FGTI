@@ -15,7 +15,6 @@ body{
     background-color: rgba(236, 236, 236, 0.568);
 }
 .back{
-    
     display: flex;
     height: 100vh;
     align-items: center;
@@ -25,7 +24,6 @@ body{
 }
 
 .card{
-    /* transition:  ease-in; */
     transition-duration: 0.3s;
     display: flex;
     background-color: rgb(255, 255, 255);
@@ -36,6 +34,7 @@ body{
     width: 70%;
     height: 70%;
     align-items: center;
+    position: absolute;
     
 
 }
@@ -45,6 +44,8 @@ body{
     margin-right: 1px;
     margin-bottom: 1px;
 }
+
+
 
 form{
     color: rgb(0, 0, 0);
@@ -63,7 +64,6 @@ label{
 }
 
 input{
-    
     display: block;
     width: 100%;
     padding: 5px;

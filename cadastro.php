@@ -34,6 +34,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <body>
     <div class="back">
         <div class="card"> 
+            <h1>CADASTRO</h1>
                 <form method="POST" action="" id="formulario">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" class="input_text">
