@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/homologaCadastro.css">
 </head>
 <body>
     <div>
         <h1>Parabéns, seu cadastro foi concluído</h1>
-        <button><a href="index.php">Fazer Login</a></button>
+        <a href="index.php"><button>Fazer Login</button></a>
     </div>
 </body>
 </html>
