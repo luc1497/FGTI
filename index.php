@@ -66,7 +66,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 <h1 id="loginName">LOGIN</h1>
                 <form method="POST" action="" id="formulario">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" class="input_text">
+                    <input required type="email" type="text" id="email" name="email" class="input_text">
                     <p id="tagp_emailerror"></p>
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" name="senha" class="input_text">

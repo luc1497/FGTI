@@ -12,7 +12,11 @@ body{
     font-family: Louis George Cafe, sans-serif;
     padding: 0;
     margin: 0;
-
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(126, 126, 126);
+    
 }
 
 nav{
@@ -100,8 +104,17 @@ nav{
     padding-top: 5px;
     justify-content: center ;
     align-items: center;
+    
 }
 
+#table{
+    font-family: Louis George Cafe, sans-serif;
+    display: flex;
+    width: 100%;
+    padding-top: 5px;
+    justify-content: center ;
+    align-items: center;
+}
 
 .option{
     display: flex;
@@ -109,7 +122,7 @@ nav{
     padding: 0;
     flex-direction: row;
     align-items: center;
-    width: 80%;
+    width: 90%;
 
 }
 
@@ -136,7 +149,7 @@ nav{
 #tabela{
 
     display: flex;
-    width: 80%;
+    width: 90%;
     flex-direction: column;
     align-items: center;
 }
@@ -166,7 +179,7 @@ nav{
     align-items: center;
     justify-content: center;
     padding: 7px;
-    background-color: azure;
+    background-color: rgb(255, 255, 255);
     margin-bottom: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.178);
 }
@@ -174,6 +187,7 @@ nav{
 .linha:hover{
     margin-bottom: 15px;
     margin-top: 8px;
+    cursor: pointer;
 }
 
 .th{
@@ -282,5 +296,10 @@ button:hover{
 
 form{
     margin: 5px;
+}
+
+h1{
+    color: azure;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.664);
 }
 

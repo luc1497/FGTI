@@ -85,7 +85,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
 
         </div>
     </div>
-    <div id="table" class="maindiv">
+    <div id="table">
         <div id="tabela">
             <div id="linhahead">
                 <div class="th"><span>ID</span></div>

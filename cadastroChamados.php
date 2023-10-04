@@ -92,45 +92,49 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="cadastroChamados.js"></script>
+    <link rel="stylesheet" href="css/cadastroChamados.css">
 </head>
 <body>
-    <div>
-        <a href="chamadosHome.php"><button>Voltar</button></a>
-    </div>
-    <div>
-        <?php
-            if(isset($_SESSION['chamado_id'])){
-                echo 
-                    "
-                        <form method='POST' action=''>
-                        <label for='status'>Status</label>
-                        <select id='status' name='status' value='$chamado[status]'>
-                        <option value='$chamado[status]'>$chamado[status]</option>
-                        <option value='Pendente'>Pendente</option>
-                        <option value='Cancelado'>Cancelado</option>
-                        </select>
-                        <label for='titutulo'>Título</label>
-                        <input type='text' id='titulo' name='titulo' value='$chamado[titulo]'>
-                        <label for='descricao'>Descrição</label>
-                        <textarea name='descricao' id='descricao' cols='30' rows='10'>$chamado[descricao]</textarea>
-                        <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                        <input type='submit' value='Salvar alterações'>
-                        </form>
-                    ";
-            }else{
-                echo
-                    "
-                        <form method='POST' action=''>
+    <div class="back">
+        <div>
+            <a href="chamadosHome.php"><button>Voltar</button></a>
+        </div>
+        <div class="card">
+            <?php
+                if(isset($_SESSION['chamado_id'])){
+                    echo 
+                        "
+                            <form method='POST' action=''>
+                            <label for='status'>Status</label>
+                            <select id='status' name='status' value='$chamado[status]'>
+                            <option value='$chamado[status]'>$chamado[status]</option>
+                            <option value='Pendente'>Pendente</option>
+                            <option value='Cancelado'>Cancelado</option>
+                            </select>
                             <label for='titutulo'>Título</label>
-                            <input type='text' id='titulo' name='titulo'>
+                            <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
                             <label for='descricao'>Descrição</label>
-                            <textarea name='descricao' id='descricao' cols='30' rows='10'></textarea>
-                            <input type='submit' value='Cadastrar'>
-                        </form>
-                    "; 
-                
-            }    
-        ?>
+                            <textarea name='descricao' id='descricao' cols='30' rows='10'>$chamado[descricao]</textarea>
+                            <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                            <input type='submit' value='Salvar alterações' class='botao'>
+                            </form>
+                        ";
+                }else{
+                    echo
+                        "
+                            <form method='POST' action=''>
+                                <label for='titutulo'>Título</label>
+                                <input type='text' id='titulo' name='titulo' class='input_text'>
+                                <label for='descricao'>Descrição</label>
+                                <textarea name='descricao' id='descricao' cols='30' rows='10'></textarea>
+                                <input type='submit' value='Cadastrar' class='botao'>
+                            </form>
+                        "; 
+                    
+                }    
+            ?>
+        </div>
+
     </div>
     <script>
         var valor = document.getElementById("status").value;
@@ -142,21 +146,3 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     </script>
 </body>
 </html>
-
-<style>
-
-    label, input {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-   
-    button{
-        margin-bottom: 10px;
-    }
-
-    select{
-        margin-bottom: 10px;
-    }
-    
-</style>
