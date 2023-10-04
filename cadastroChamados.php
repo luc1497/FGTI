@@ -97,7 +97,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <body>
     <div class="back">
         <div>
-            <a href="chamadosHome.php"><button>Voltar</button></a>
+            <button class="voltar"><a href="chamadosHome.php">Voltar</a></button>
         </div>
         <div class="card">
             <?php
@@ -114,7 +114,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             <label for='titutulo'>Título</label>
                             <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
                             <label for='descricao'>Descrição</label>
-                            <textarea name='descricao' id='descricao' cols='30' rows='10'>$chamado[descricao]</textarea>
+                            <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
                             <input type='hidden' name='chamado_id' value='$chamado[id]'>
                             <input type='submit' value='Salvar alterações' class='botao'>
                             </form>
@@ -126,7 +126,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 <label for='titutulo'>Título</label>
                                 <input type='text' id='titulo' name='titulo' class='input_text'>
                                 <label for='descricao'>Descrição</label>
-                                <textarea name='descricao' id='descricao' cols='30' rows='10'></textarea>
+                                <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'></textarea>
                                 <input type='submit' value='Cadastrar' class='botao'>
                             </form>
                         "; 
