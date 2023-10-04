@@ -50,24 +50,54 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
     <script src="chamadosHome.js"></script>
 </head>
 <body>
-    <div class="maindiv">
+    <nav>
+        <div class="nav_left">
+            <div class="nav_item_left">
+                <p class="nav_text"><?php echo $_SESSION['nome'];?></p>
+            </div>    
+        </div>
+        
+        <div class="nav_right">
+            <div class="nav_item_right">
+                <a href="logout.php" style="color:azure; display:inline; height:50%">Logout</a>
+            </div>
+        </div>    
+    </nav>
+
+    <div class="title">
         <h1>Sua lista de chamados abertos</h1>
-        <button id="cadastroChamados.php"><a href="cadastroChamados.php">Cadastrar Chamado</a></button>
-        <button id="cadastroChamados.php"><a href="appHome.php">Home</a></button>
     </div>
-    <div id="tableback" class="maindiv">
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Status</th>
-                <th>Criado em</th>
-                <th>Dias corridos</th>
-                <th>Opções</th>
-            </thead>
-            <tbody>
-                <?php
+    <div class="maindiv">
+        <div class="option">
+
+            <div class="option_left">
+            <a href="appHome.php">
+                        <button class="botao_cadastrar">Voltar</button>
+                </a>
+                
+            </div>
+            <div class="option_right">
+                <a href="cadastroChamados.php">
+                        <button class="botao_cadastrar">Cadastrar chamado</button>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="table" class="maindiv">
+        <div id="tabela">
+            <div id="linhahead">
+                <div class="th"><span>ID</span></div>
+                <div class="th"><span>Título</span></div>
+                <div class="th"><span>Status</span></div>
+                <div class="th"><span>Criado em</span></div>
+                <div class="th"><span>Dias corridos</span></div>
+                <div class="th"><span>Opções</span></div>
+            </div>
+            <?php
                     while($chamado = $retornodaconsulta->fetch_assoc()){
+
                         $datahoje = new DateTime();
                         $datachamado = new DateTime($chamado['datacriacao']);
                         $diferenca = $datahoje->diff($datachamado);
@@ -75,33 +105,33 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                         
                         $dataexibir = date_format($datachamado, 'd/m/Y H:i');
                         
-                        echo "<tr class='chamado'>";
-                        echo "<td>".$chamado['id']."</td>";
-                        echo "<td>".$chamado['titulo']."</td>";
-                        echo "<td>".$chamado['status']."</td>";
-                        echo "<td>".$dataexibir."</td>";
+                        echo "<div class='linha'>";
+                        echo "<div class='th'>".$chamado['id']."</div>";
+                        echo "<div class='th'>".$chamado['titulo']."</div>";
+                        echo "<div class='th'>".$chamado['status']."</div>";
+                        echo "<div class='th'>".$dataexibir."</div>";
                         
                         if ($diascorridos > 0){
                             if ($diascorridos === 1){
-                                echo "<td>".$diascorridos." Dia</td>";
+                                echo "<div class='th'>".$diascorridos." Dia</div>";
                             }else{
-                                echo "<td>".$diascorridos." Dias</td>";
+                                echo "<div class='th'>".$diascorridos." Dias</div>";
                             }
                         }else{
-                            echo "<td>Criado Hoje</td>";
+                            echo "<div class='th'>Criado Hoje</div>";
                             
                         }
                         
                         if ($chamado['status'] == "Finalizado"){
                             
                             echo "
-                            <td>
+                            <div class='th'>
                             </form>
                             <form method='POST' action='' onsubmit='return concluir($chamado[id], event);' id='concluirForm$chamado[id]'>
                             <input type='hidden' name='concluir_id' value='$chamado[id]'>
-                            <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir' >
+                            <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir' class='botao_excluir' >
                             </form>
-                                 </td>
+                                </div>
                         
                             ";
 
@@ -111,12 +141,12 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                         if($chamado['status'] == "Concluído"){
                             
                             echo "
-                                 <td>
+                                <div class='th'>
                                  <form method='POST' action='cadastroChamados.php'>
-                                 <input type='submit' name='visualizar' value='Visualizar'>
+                                 <input type='submit' name='visualizar' value=''  class='botao_visualizar'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>
-                                 </td>
+                                 </div>
                         
                                  ";
 
@@ -126,27 +156,25 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                         if($chamado['status'] !== "Concluído" && $chamado['status'] !== "Finalizado" ) {
                                     
                             echo "
-                                 <td>
+                                <div class='th'>
                                  <form method='POST' action='cadastroChamados.php'>
-                                 <input type='submit' name='editar' value='Editar'>
+                                 <input type='submit' name='editar' value='' class='botao_editar'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>
                                  <form method='POST' action='#' onsubmit='return validation($chamado[id], event);' id='delete_form$chamado[id]'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                                 <input type='submit' name='excluir' value='Excluir' id='botao_excluir' >
+                                 <input type='submit' name='excluir' value='' id='botao_excluir' class='botao_excluir' >
                                  </form>
-                                 </td>
+                                 </div>
                                 ";
                                     
                         }
                                 
-                         echo "</tr>";
-
-                         
+                        echo "</div>";
                         }                    
                             ?>
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
     <div id="validacaoback" class="validacao">
         <div id="window" class="validacao">
