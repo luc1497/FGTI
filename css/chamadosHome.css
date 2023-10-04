@@ -269,6 +269,7 @@ button:hover{
     border: none;
     background: url(../icons/trash.svg);
     width: 16px;
+    height: 16px;
 }
 
 .botao_editar{
@@ -276,6 +277,7 @@ button:hover{
     border: none;
     background: url(../icons/visualizar.svg);
     width: 16px;
+    height: 16px;
 }
 
 form{
