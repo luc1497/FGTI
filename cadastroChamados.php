@@ -96,8 +96,8 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 </head>
 <body>
     <div class="back">
-        <div>
-            <button class="voltar"><a href="chamadosHome.php">Voltar</a></button>
+        <div class="top">
+            <button class="voltar" style="width: 100px; padding: 0;"><a href="chamadosHome.php">Voltar</a></button>
         </div>
         <div class="card">
             <?php
@@ -105,15 +105,15 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                     echo 
                         "
                             <form method='POST' action=''>
-                            <label for='status'>Status</label>
+                            <label for='status'>Status:</label>
                             <select id='status' name='status' value='$chamado[status]'>
                             <option value='$chamado[status]'>$chamado[status]</option>
                             <option value='Pendente'>Pendente</option>
                             <option value='Cancelado'>Cancelado</option>
                             </select>
-                            <label for='titutulo'>Título</label>
+                            <label for='titutulo'>Título:</label>
                             <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
-                            <label for='descricao'>Descrição</label>
+                            <label for='descricao'>Descrição:</label>
                             <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
                             <input type='hidden' name='chamado_id' value='$chamado[id]'>
                             <input type='submit' value='Salvar alterações' class='botao'>
@@ -123,9 +123,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                     echo
                         "
                             <form method='POST' action=''>
-                                <label for='titutulo'>Título</label>
+                                <label for='titutulo'>Título:</label>
                                 <input type='text' id='titulo' name='titulo' class='input_text'>
-                                <label for='descricao'>Descrição</label>
+                                <label for='descricao'>Descrição:</label>
                                 <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'></textarea>
                                 <input type='submit' value='Cadastrar' class='botao'>
                             </form>

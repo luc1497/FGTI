@@ -48,6 +48,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
     <title>Chamados | Home</title>
     <link rel="stylesheet" href="css/chamadosHome.css">
     <script src="chamadosHome.js"></script>
+    <script src="linhaclick.js"></script>
 </head>
 <body>
     <nav>
@@ -105,7 +106,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                         
                         $dataexibir = date_format($datachamado, 'd/m/Y H:i');
                         
-                        echo "<div class='linha'>";
+                        echo "<div class='linha' id='linha$chamado[id]' value='$chamado[id]'>";
                         echo "<div class='th'>".$chamado['id']."</div>";
                         echo "<div class='th'>".$chamado['titulo']."</div>";
                         echo "<div class='th'>".$chamado['status']."</div>";
@@ -157,7 +158,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                                     
                             echo "
                                 <div class='th'>
-                                 <form method='POST' action='cadastroChamados.php'>
+                                 <form method='POST' action='cadastroChamados.php' id='editar$chamado[id]'>
                                  <input type='submit' name='editar' value='' class='botao_editar'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>

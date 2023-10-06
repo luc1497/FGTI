@@ -21,7 +21,7 @@ if (!isset($_SESSION['id'])){
    <nav>
         <div class="nav_left">
             <div class="nav_item_left">
-                <p><?php echo $_SESSION['nome'];?></p>
+                <p style="color: azure;"><?php echo $_SESSION['nome'];?></p>
             </div>    
         </div>
 

@@ -15,7 +15,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(126, 126, 126);
+    background-color: rgba(197, 197, 197, 0.568);
     
 }
 
@@ -284,6 +284,7 @@ button:hover{
     background: url(../icons/trash.svg);
     width: 16px;
     height: 16px;
+    z-index: 1;
 }
 
 .botao_editar{
@@ -301,5 +302,6 @@ form{
 h1{
     color: azure;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.664);
+    text-align: center;
 }
 
