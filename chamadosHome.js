@@ -2,6 +2,7 @@
 
 function validation(chamadoid, event){
     event.preventDefault();
+    
     console.log(chamadoid);
     var validacaoback = document.getElementById("validacaoback");
     validacaoback.style.display = "flex";

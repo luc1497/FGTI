@@ -130,7 +130,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                             </form>
                             <form method='POST' action='' onsubmit='return concluir($chamado[id], event);' id='concluirForm$chamado[id]'>
                             <input type='hidden' name='concluir_id' value='$chamado[id]'>
-                            <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir' class='botao_excluir' >
+                            <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir$chamado[id]' class='botao_excluir' >
                             </form>
                                 </div>
                         
@@ -162,10 +162,12 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                                  <input type='submit' name='editar' value='' class='botao_editar'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>
+                                 <div id='excluir$chamado[id]' class='excluir' value='$chamado[id]'>
                                  <form method='POST' action='#' onsubmit='return validation($chamado[id], event);' id='delete_form$chamado[id]'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                                 <input type='submit' name='excluir' value='' id='botao_excluir' class='botao_excluir' >
+                                 <input type='submit' name='excluir' value='' id='botao_excluir$chamado[id]' class='botao_excluir' >
                                  </form>
+                                 </div>
                                  </div>
                                 ";
                                     
