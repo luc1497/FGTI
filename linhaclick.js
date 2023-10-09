@@ -38,7 +38,14 @@ document.addEventListener("DOMContentLoaded", function(){
             linhaConcluida.style.display = "flex";
         })
 
+        seletorFinalizado.style.backgroundColor = "Azure";
+        seletorFinalizado.style.color = "rgb(94, 196, 255)";
+        seletorFinalizado.style.border = "2px solid";
 
+        seletorAbertos.style.backgroundColor = "rgb(94, 196, 255)";
+        seletorAbertos.style.color = "Azure";
+        seletorAbertos.style.border = "none";
+        
 
     })
 
@@ -51,7 +58,13 @@ document.addEventListener("DOMContentLoaded", function(){
             linhaConcluida.style.display = "none";
         })
 
+        seletorAbertos.style.backgroundColor = "Azure";
+        seletorAbertos.style.color = "rgb(94, 196, 255)";
+        seletorAbertos.style.border = "2px solid";
 
+        seletorFinalizado.style.backgroundColor = "rgb(94, 196, 255)";
+        seletorFinalizado.style.color = "Azure";
+        seletorFinalizado.style.border = "none";
     })
 
 });

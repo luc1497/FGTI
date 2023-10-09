@@ -284,7 +284,29 @@ a{
     cursor: pointer;
 }
 
-.listaSeletor{
+#seletorAbertos{
+    
+    transition-duration: 0.2s;
+    background-color: azure;
+    outline: none;
+    height: 25px;
+    border: 2px solid;
+    color: rgb(94, 196, 255);
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+    height: 30px;
+}
+
+#seletorAbertos:hover{
+    background-color: rgb(94, 196, 255);
+    border: 2px solid;
+    color: azure;
+    border: "none";
+    cursor: pointer;
+    
+}
+#seletorFinalizados{
     
     transition-duration: 0.2s;
     background-color: rgb(94, 196, 255);
@@ -298,7 +320,7 @@ a{
     height: 30px;
 }
 
-.listaSeletor:hover{
+#seletorFinalizados:hover{
     background-color: azure;
     border-color: rgb(94, 196, 255);
     color: rgb(94, 196, 255);
