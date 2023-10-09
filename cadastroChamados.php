@@ -102,7 +102,8 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         <div class="card">
             <?php
                 if(isset($_SESSION['chamado_id'])){
-                    echo 
+                    if ($chamado['status'] === "Concluído" || $chamado['status'] === "Em andamento" || $chamado['status'] === "Finalizado" ){
+                        echo 
                         "
                             <form method='POST' action=''>
                             <label for='status'>Status:</label>
@@ -116,9 +117,28 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             <label for='descricao'>Descrição:</label>
                             <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
                             <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                            <input type='submit' value='Salvar alterações' class='botao'>
                             </form>
                         ";
+                    }else{
+                        echo 
+                            "
+                                <form method='POST' action=''>
+                                <label for='status'>Status:</label>
+                                <select id='status' name='status' value='$chamado[status]'>
+                                <option value='$chamado[status]'>$chamado[status]</option>
+                                <option value='Pendente'>Pendente</option>
+                                <option value='Cancelado'>Cancelado</option>
+                                </select>
+                                <label for='titutulo'>Título:</label>
+                                <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
+                                <label for='descricao'>Descrição:</label>
+                                <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
+                                <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                                <input type='submit' value='Salvar alterações' class='botao'>
+                                </form>
+                            ";
+                    }
+
                 }else{
                     echo
                         "

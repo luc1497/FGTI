@@ -111,7 +111,6 @@ nav{
     font-family: Louis George Cafe, sans-serif;
     display: flex;
     width: 100%;
-    padding-top: 5px;
     justify-content: center ;
     align-items: center;
 }
@@ -138,6 +137,13 @@ nav{
     width: 100%;
     justify-content: right;
 }
+
+.option_center{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 
 #tableback{
     
@@ -235,8 +241,8 @@ nav{
     text-align: center;
     display: grid;
     background-color: rgb(183, 204, 202);
-    height: 15%;
-    width: 15%;
+    height: 145px;
+    width: 330px;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.534);
@@ -257,7 +263,7 @@ a{
     height: 100%;
 }
 
-button{
+.botao_cadastrar{
     border-radius: 3px;
     transition-duration: 0.2s;
     background-color: rgb(94, 196, 255);
@@ -267,9 +273,10 @@ button{
     color: azure;
     font-weight: bold;
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
-button:hover{
+.botao_cadastrar:hover{
     background-color: azure;
     border-color: rgb(94, 196, 255);
     color: rgb(94, 196, 255);
@@ -277,11 +284,57 @@ button:hover{
     cursor: pointer;
 }
 
+.listaSeletor{
+    
+    transition-duration: 0.2s;
+    background-color: rgb(94, 196, 255);
+    outline: none;
+    height: 25px;
+    border: none;
+    color: azure;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+    height: 30px;
+}
+
+.listaSeletor:hover{
+    background-color: azure;
+    border-color: rgb(94, 196, 255);
+    color: rgb(94, 196, 255);
+    border: 2px solid;
+    cursor: pointer;
+    
+}
+
 .botao_excluir{
+    
     fill: red;
     cursor: pointer;
     border: none;
     background: url(../icons/trash.svg);
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+}
+
+.botao_excluir:hover{
+    background: url(../icons/trashfill.svg);
+}
+
+
+.botao_concluir{
+    cursor: pointer;
+    border: none;
+    background: url(../icons/concluir.svg);
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+}
+.botao_visualizar{
+    cursor: pointer;
+    border: none;
+    background: url(../icons/eye.svg);
     width: 16px;
     height: 16px;
     z-index: 1;
@@ -303,5 +356,9 @@ h1{
     color: azure;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.664);
     text-align: center;
+}
+
+div[status="Concluído"]{
+    display: none;
 }
 

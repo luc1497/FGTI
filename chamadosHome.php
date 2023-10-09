@@ -77,6 +77,10 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                 </a>
                 
             </div>
+            <div class="option_center">
+                <button class="listaSeletor" id="seletorAbertos">Abertos</button>
+                <button class="listaSeletor" id="seletorFinalizados">Finalizados</button>
+            </div>
             <div class="option_right">
                 <a href="cadastroChamados.php">
                         <button class="botao_cadastrar">Cadastrar chamado</button>
@@ -97,6 +101,10 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                 <div class="th"><span>Opções</span></div>
             </div>
             <?php
+                    $consulta = "SELECT * FROM chamados WHERE user_id = '$user_id' ORDER BY id ASC;";
+                    $retornodaconsulta = $conectar->query($consulta);
+                    $qtdresultado = $retornodaconsulta->num_rows;
+
                     while($chamado = $retornodaconsulta->fetch_assoc()){
 
                         $datahoje = new DateTime();
@@ -106,7 +114,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                         
                         $dataexibir = date_format($datachamado, 'd/m/Y H:i');
                         
-                        echo "<div class='linha' id='linha$chamado[id]' value='$chamado[id]'>";
+                        echo "<div class='linha' id='linha$chamado[id]' value='$chamado[id]' status='$chamado[status]'>";
                         echo "<div class='th'>".$chamado['id']."</div>";
                         echo "<div class='th'>".$chamado['titulo']."</div>";
                         echo "<div class='th'>".$chamado['status']."</div>";
@@ -130,7 +138,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                             </form>
                             <form method='POST' action='' onsubmit='return concluir($chamado[id], event);' id='concluirForm$chamado[id]'>
                             <input type='hidden' name='concluir_id' value='$chamado[id]'>
-                            <input type='submit' name='excluir' value='Concluir Chamado' id='botao_excluir$chamado[id]' class='botao_excluir' >
+                            <input type='submit' name='excluir' value='' id='botao_excluir$chamado[id]' class='botao_concluir' >
                             </form>
                                 </div>
                         
@@ -143,7 +151,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                             
                             echo "
                                 <div class='th'>
-                                 <form method='POST' action='cadastroChamados.php'>
+                                 <form method='POST' action='cadastroChamados.php' id='editar$chamado[id]'>
                                  <input type='submit' name='visualizar' value=''  class='botao_visualizar'>
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>
