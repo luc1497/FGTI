@@ -92,6 +92,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="cadastroChamados.js"></script>
+    <script src="chat.js"></script>
     <link rel="stylesheet" href="css/cadastroChamados.css">
 </head>
 <body>
@@ -120,6 +121,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             </form>
                         ";
                     }else{
+                        //caso clique em um chamado diferente de concluído ou finalizado
                         echo 
                             "
                                 <form method='POST' action=''>
@@ -136,6 +138,21 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                 <input type='submit' value='Salvar alterações' class='botao'>
                                 </form>
+                                <div class='boxMsg' id='boxMsg'>
+                                    <div class='linharight'>
+                                        <div class='rightMsg'><span class='txt'>Ok!</span></div>
+                                    </div>
+                                    <div class='linhaleft'>
+                                        <div class='leftMsg'><span class='txt'>Bom dia !</span></div>
+                                    </div>
+
+                                </div>
+                                <div class='inputMsg'>
+                                <textarea type='text' class='msgText' id='msgText'></textarea>
+                                <div class='container' >
+                                <button class='sendMsg' id='sendMsg'>Enviar</button>
+                                </div>
+                                </div>
                             ";
                     }
 

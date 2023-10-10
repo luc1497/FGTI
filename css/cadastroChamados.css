@@ -19,7 +19,7 @@ body{
     display: flex;
     height: 100vh;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     padding: 0px;
     margin: 0px;
     flex-direction: column;
@@ -37,7 +37,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 70%;
+    
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     flex-direction: column;
     
@@ -135,8 +135,9 @@ select{
 form{
 
     width: 90%;
-    height: 100%;
+    
     margin-top: 10%;
+    margin-bottom: 40px;
 }
 
 .voltar{
@@ -180,6 +181,117 @@ a:hover{
 .top{
     width: 25%;
 }
+
+.boxMsg{
+    border-radius: 2px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.24);
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    border: 1px solid;
+    border-color: rgba(56, 56, 56, 0.726);
+    flex-direction: column;
+}
+
+.linhaleft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60px;
+    justify-content: center;
+    align-items: start;
+    
+    
+}
+
+.linharight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* min-height: 60px; */
+    justify-content: center;
+    align-items: end;
+    
+}
+
+.rightMsg{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    /* min-height: 25px; */
+    justify-content: left;
+    align-items: start;
+    background-color: rgb(8, 207, 141);
+    min-width: 75px;
+    max-width: 250px;
+}
+
+.leftMsg{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    min-height: 25px;
+    justify-content: left;
+    align-items: start;
+    background-color: rgb(66, 66, 66);
+    min-width: 75px;
+    max-width: 250px;
+}
+
+.inputMsg{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.txt{
+    max-width: 100%;
+    word-wrap: break-word;
+    
+}
+
+.msgText{
+    border-radius: 2px;
+    width: 80%;
+    height: 100%;
+    border: none;
+    border-radius: 1px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.699);
+
+}
+
+.msgText:focus{
+    outline: none;
+}
+
+
+
+.sendMsg{
+    text-align: center;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+.sendMsg:hover{
+    cursor: pointer;
+}
+
+.container{
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+
 
 @media(max-width: 1200px){
     .card{

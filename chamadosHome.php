@@ -156,7 +156,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' && isset($_POST['concluir_id'])){
                                  <input type='hidden' name='chamado_id' value='$chamado[id]'>
                                  </form>
                                  </div>
-                        
+                                
                                  ";
 
 
