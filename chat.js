@@ -7,5 +7,12 @@ document.addEventListener("DOMContentLoaded",function(){
         mensagem = texto.value;
         console.log(texto);
         console.log(mensagem);
+        var msg = {
+        texto : mensagem
+        };
+
+        fetch("insereMsg.php", {method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(msg)})
+
+        
     });
 })

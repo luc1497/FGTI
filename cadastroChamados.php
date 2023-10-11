@@ -93,6 +93,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     <title>Document</title>
     <script src="cadastroChamados.js"></script>
     <script src="chat.js"></script>
+    <script src="get_Mensagens.php"></script>
     <link rel="stylesheet" href="css/cadastroChamados.css">
 </head>
 <body>
@@ -145,8 +146,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                     <div class='linhaleft'>
                                         <div class='leftMsg'><span class='txt'>Bom dia !</span></div>
                                     </div>
-
                                 </div>
+
+                                
                                 <div class='inputMsg'>
                                 <textarea type='text' class='msgText' id='msgText'></textarea>
                                 <div class='container' >
