@@ -17,44 +17,61 @@ echo json_encode($data);
 
 ?>
 
-function getMensagens (teste){
+    tamanhoAnterior = false;
+    function getMensagens(){
         var userId = <?php echo $_SESSION['id']; ?>;
         var chamadoId = <?php echo $_SESSION['chamado_id']; ?>;
-        console.log(userId);
-        console.log("teste");
         fetch("getMensagens.php")
             .then(function(reposta){
                 return reposta.json();
             })
 
             .then(function(mensagem){
-                console.log(mensagem);
-                console.log(Array.isArray(mensagem));
+                //console.log(mensagem);
+                //console.log(mensagem.length);
                 msgBox = document.getElementById("boxMsg");
-
-                mensagem.forEach(function(msg) {
-                    console.log(teste);
-                    var texto = msg.texto;
-                    if (msg.chamado_id == chamadoId){
-                        if (msg.user_id == userId){
-                            msgBox.innerHTML += `<div class='linharight'><div class='rightMsg'><span class='txt'>${texto}</span></div></div>`;
-                        }else{
-                            console.log(msg.id + " " + userId)
-                            msgBox.innerHTML += `<div class='linhaleft'><div class='leftMsg'><span class='txt'>${texto}</span></div></div>`;
-                        }
-                    }
-
-
-
-
-                });
                 
+                if(tamanhoAnterior == false){
+                    mensagem.forEach(function(msg) {
+                        var texto = msg.texto;
+                        if (msg.chamado_id == chamadoId){
+                            if (msg.user_id == userId){
+                                msgBox.innerHTML += `<div class='linharight'><div class='rightMsg'><span class='txt'>${texto}</span></div></div>`;
+                            }else{
+                            
+                                msgBox.innerHTML += `<div class='linhaleft'><div class='leftMsg'><span class='txt'>${texto}</span></div></div>`;
+                            }
+                        }
+                        var div = document.getElementById("boxMsg");
+                        div.scrollTop = div.scrollHeight;
+                    
+                    
+                    
+                    });
+
+                }else{
+                    if(mensagem.length > tamanhoAnterior){
+                        var chave = mensagem.length - 1;
+                        if (mensagem[chave].user_id == userId){
+                                msgBox.innerHTML += `<div class='linharight'><div class='rightMsg'><span class='txt'>${mensagem[chave].texto}</span></div></div>`;
+                            }else{
+                            
+                                msgBox.innerHTML += `<div class='linhaleft'><div class='leftMsg'><span class='txt'>${mensagem[chave].texto}</span></div></div>`;
+                            }
+                    }
+                }
+                var div = document.getElementById("boxMsg");
+                div.scrollTop = div.scrollHeight;
+                
+                tamanhoAnterior = mensagem.length;
+
+
             })
 
 
     
 }
 
-//setInterval(getMensagens, 1000);
+setInterval(getMensagens, 200);
 getMensagens();
 
