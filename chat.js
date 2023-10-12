@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded",function(){
     
     botaoEnviar.addEventListener("click", function(){
         mensagem = texto.value;
+        texto.value = "";
         console.log(texto);
         console.log(mensagem);
         var msg = {
-        texto : mensagem
+            texto : mensagem
         };
 
         fetch("insereMsg.php", {method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(msg)})

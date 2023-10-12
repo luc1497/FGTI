@@ -19,6 +19,7 @@ echo json_encode($data);
 
 function getMensagens (teste){
         var userId = <?php echo $_SESSION['id']; ?>;
+        var chamadoId = <?php echo $_SESSION['chamado_id']; ?>;
         console.log(userId);
         console.log("teste");
         fetch("getMensagens.php")
@@ -34,11 +35,13 @@ function getMensagens (teste){
                 mensagem.forEach(function(msg) {
                     console.log(teste);
                     var texto = msg.texto;
-                    if (msg.user_id == userId){
-                        msgBox.innerHTML += `<div class='linharight'><div class='rightMsg'><span class='txt'>${texto}</span></div></div>`;
-                    }else{
-                        console.log(msg.id + " " + userId)
-                        msgBox.innerHTML += `<div class='linhaleft'><div class='leftMsg'><span class='txt'>${texto}</span></div></div>`;
+                    if (msg.chamado_id == chamadoId){
+                        if (msg.user_id == userId){
+                            msgBox.innerHTML += `<div class='linharight'><div class='rightMsg'><span class='txt'>${texto}</span></div></div>`;
+                        }else{
+                            console.log(msg.id + " " + userId)
+                            msgBox.innerHTML += `<div class='linhaleft'><div class='leftMsg'><span class='txt'>${texto}</span></div></div>`;
+                        }
                     }
 
 

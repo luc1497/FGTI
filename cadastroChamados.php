@@ -140,15 +140,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 <input type='submit' value='Salvar alterações' class='botao'>
                                 </form>
                                 <div class='boxMsg' id='boxMsg'>
-                                    <div class='linharight'>
-                                        <div class='rightMsg'><span class='txt'>Ok!</span></div>
-                                    </div>
-                                    <div class='linhaleft'>
-                                        <div class='leftMsg'><span class='txt'>Bom dia !</span></div>
-                                    </div>
                                 </div>
-
-                                
                                 <div class='inputMsg'>
                                 <textarea type='text' class='msgText' id='msgText'></textarea>
                                 <div class='container' >
