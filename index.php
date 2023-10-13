@@ -27,7 +27,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         $_SESSION['root'] = $usuario['root'];
     
         if($usuario['root'] == 1){
-            header("location: /root/appHome.php");
+            header("location: root/appHome.php");
             
         }else{
             header("location: appHome.php");

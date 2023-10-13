@@ -120,6 +120,15 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
                             <input type='hidden' name='chamado_id' value='$chamado[id]'>
                             </form>
+                            <div class='boxMsg' id='boxMsg'>
+                                </div>
+                                <div class='inputMsg'>
+                                <textarea type='text' class='msgText' id='msgText'></textarea>
+                                <div class='container' >
+                                <button class='sendMsg' id='sendMsg'>Enviar</button>
+                                </div>
+                                </div>
+                            
                         ";
                     }else{
                         //caso clique em um chamado diferente de concluído ou finalizado

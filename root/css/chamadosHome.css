@@ -1,43 +1,206 @@
-.maindiv{
-    font-family: sans-serif;
+@font-face {
+    font-family: 'Louis George Cafe Light';
+    src: url('../fonts/Louis\ George\ Cafe\ Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Louis George Cafe';
+    src: url('../fonts/Louis\ George\ Cafe.ttf') format('truetype');
+}
+
+body{
+    font-family: Louis George Cafe, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(197, 197, 197, 0.568);
+    
+}
+
+nav{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    height: 4vh;
+    align-items: center;
+    width: 100%;
+    background-color: #333;
+    box-shadow: 0px 3px 4px rgb(41, 36, 36);
+}
+
+
+.nav_text{
+    
+    
+    color: white;
+    margin: 0px;
+    
+
+    
+}
+
+.nav_right{
     display: flex;
     width: 100%;
+    height: 100%;
+    justify-content: right;
+
+}
+
+.nav_left{
+    display: flex;
+    width: 100%;
+    height: 100%;
     
+
+}
+
+.nav_item_left{
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    align-items: center;
+    
+    
+}
+.nav_item_left:hover{
+    background-color: #cfcfcf54;
+
+}
+
+.nav_item_right{
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    align-items: center;
+    
+    
+}
+
+.nav_item_right:hover{
+    background-color: #cfcfcf54;
+}
+
+
+.title{
+    font-family: Louis George Cafe, sans-serif;
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    justify-content: center ;
+    align-items: center;
+
+}
+
+.maindiv{
+    font-family: Louis George Cafe, sans-serif;
+    display: flex;
+    width: 100%;
+    padding-top: 5px;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
+#table{
+    font-family: Louis George Cafe, sans-serif;
+    display: flex;
+    width: 100%;
     justify-content: center ;
     align-items: center;
 }
 
-#table{
+.option{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+
+}
+
+.option_left{
+    display: flex;
+    width: 100%;
+    justify-content: left;
+
+}
+
+.option_right{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.option_center{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+#tableback{
+    
     display: flex;
     width: 100%;
     justify-content: center ;
-
-}
-table{
- width: 50%;
- border-collapse: collapse;
- 
 }
 
-th, td{
-    
-    padding: 5px;
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
+#tabela{
+
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
 }
 
-button{
-    margin: 5px;
-
+#linhahead{
+    border-radius: 3px;
+    font-weight: bold;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    background-color: rgb(94, 196, 255);
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.178);
 }
 
-tr{
-    background-color: rgba(255, 255, 255, 0.226);
+.linha{
+    border-radius: 3px;
+    transition: ease;
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.178);
 }
 
-tr:hover{
-    background-color: rgba(0, 0, 0, 0.151);
+.linha:hover{
+    margin-bottom: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.th{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
 }
 
 #cadastroChamados{
@@ -59,12 +222,27 @@ tr:hover{
     
 }
 
+#concluirback{
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.301);
+    margin: 0;
+    padding: 0;
+    
+}
+
 #window{
     text-align: center;
     display: grid;
     background-color: rgb(183, 204, 202);
-    height: 15%;
-    width: 15%;
+    height: 145px;
+    width: 330px;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.534);
@@ -77,18 +255,132 @@ tr:hover{
     width: 27%;
 }
 
-p{  
-
-    height: 10%;
-    width: 80%;
-    font-weight: bold;
-    text-align: center;
+a{
+    display: flex;
+    text-decoration: none;
+    padding: 0;
     margin: 0;
-    margin-bottom: 10%;
+    height: 100%;
+}
+
+.botao_cadastrar{
+    border-radius: 3px;
+    transition-duration: 0.2s;
+    background-color: rgb(94, 196, 255);
+    outline: none;
+    height: 25px;
+    border: none;
+    color: azure;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.botao_cadastrar:hover{
+    background-color: azure;
+    border-color: rgb(94, 196, 255);
+    color: rgb(94, 196, 255);
+    border: 2px solid;
+    cursor: pointer;
+}
+
+#seletorAbertos{
     
+    transition-duration: 0.2s;
+    background-color: azure;
+    outline: none;
+    height: 25px;
+    border: 2px solid;
+    color: rgb(94, 196, 255);
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+    height: 30px;
+}
+
+#seletorAbertos:hover{
+    background-color: rgb(94, 196, 255);
+    border: 2px solid;
+    color: azure;
+    border: "none";
+    cursor: pointer;
     
+}
+#seletorFinalizados{
     
+    transition-duration: 0.2s;
+    background-color: rgb(94, 196, 255);
+    outline: none;
+    height: 25px;
+    border: none;
+    color: azure;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+    height: 30px;
+}
+
+#seletorFinalizados:hover{
+    background-color: azure;
+    border-color: rgb(94, 196, 255);
+    color: rgb(94, 196, 255);
+    border: 2px solid;
+    cursor: pointer;
     
+}
+
+.botao_excluir{
     
+    fill: red;
+    cursor: pointer;
+    border: none;
+    background: url(../icons/trash.svg);
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+}
+
+.botao_excluir:hover{
+    background: url(../icons/trashfill.svg);
+}
+
+
+.botao_concluir{
+    cursor: pointer;
+    border: none;
+    background: url(../icons/concluir.svg);
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+}
+.botao_visualizar{
+    cursor: pointer;
+    border: none;
+    background: url(../icons/eye.svg);
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+}
+
+.botao_editar{
+    cursor: pointer;
+    border: none;
+    background: url(../icons/visualizar.svg);
+    width: 16px;
+    height: 16px;
+}
+
+form{
+    margin: 5px;
+}
+
+h1{
+    color: azure;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.664);
+    text-align: center;
+}
+
+div[status="Concluído"]{
+    display: none;
 }
 

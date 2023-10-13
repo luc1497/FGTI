@@ -1,11 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set('America/Recife');
-if (!$_SESSION['root'] == 1){
-    session_destroy();
-    header("location: index.php");
-}
-
 if (!isset($_SESSION['id'])){
     session_destroy();
     header("location: index.php");
@@ -37,7 +32,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['chamado_id'])){
 //cadastra o chamado
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     if(!isset($_POST['chamado_id'])){
-
+        $user_name = $_SESSION['nome'];
         $user_id = $_SESSION['id'];
         $titulo = $_POST['titulo'];
         $descricao = $_POST['descricao'];
@@ -45,7 +40,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         
     
 
-        $escrita = "INSERT INTO chamados (user_id, titulo, descricao, status, datacriacao) VALUES ('$user_id', '$titulo', '$descricao', 'Pendente', '$dataatual')";
+        $escrita = "INSERT INTO chamados (user_id, titulo, descricao, status, datacriacao, user_name) VALUES ('$user_id', '$titulo', '$descricao', 'Pendente', '$dataatual', '$user_name')";
         $realizarescrita = $conectar->query($escrita);
         
         $busca = "SELECT * FROM chamados WHERE datacriacao = '$dataatual'";
@@ -95,50 +90,94 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chamados | Cadastro</title>
     <script src="cadastroChamados.js"></script>
+    <script src="chat.js"></script>
+    <script src="get_Mensagens.php"></script>
+    <link rel="stylesheet" href="css/cadastroChamados.css">
 </head>
 <body>
-    <div>
-        <a href="chamadosHome.php"><button>Voltar</button></a>
-    </div>
-    <div>
-        <?php
-            if(isset($_SESSION['chamado_id'])){
-                echo 
-                    "
-                        <form method='POST' action=''>
-                        <label for='status'>Status</label>
-                        <select id='status' name='status' value='$chamado[status]'>
-                        <option value='$chamado[status]'>$chamado[status]</option>
-                        <option value='Pendente'>Pendente</option>
-                        <option value='Cancelado'>Cancelado</option>
-                        <option value='Em análise'>Em análise</option>
-                        <option value='Em andamento'>Em andamento</option>
-                        <option value='Finalizado'>Finalizado</option>
-                        </select>
-                        <label for='titutulo'>Título</label>
-                        <input type='text' id='titulo' name='titulo' value='$chamado[titulo]'>
-                        <label for='descricao'>Descrição</label>
-                        <textarea name='descricao' id='descricao' cols='30' rows='10'>$chamado[descricao]</textarea>
-                        <input type='hidden' name='chamado_id' value='$chamado[id]'>
-                        <input type='submit' value='Salvar alterações'>
-                        </form>
-                    ";
-            }else{
-                echo
-                    "
-                        <form method='POST' action=''>
-                            <label for='titutulo'>Título</label>
-                            <input type='text' id='titulo' name='titulo'>
-                            <label for='descricao'>Descrição</label>
-                            <textarea name='descricao' id='descricao' cols='30' rows='10'></textarea>
-                            <input type='submit' value='Cadastrar'>
-                        </form>
-                    "; 
-                
-            }    
-        ?>
+    <div class="back">
+        <div class="top">
+            <button class="voltar" style="width: 100px; padding: 0;"><a href="chamadosHome.php">Voltar</a></button>
+        </div>
+        <div class="card">
+            <?php
+                if(isset($_SESSION['chamado_id'])){
+                    if ($chamado['status'] === "Concluído" || $chamado['status'] === "Em andamento" || $chamado['status'] === "Finalizado" ){
+                        echo 
+                        "
+                            <form method='POST' action=''>
+                            <label for='status'>Status:</label>
+                            <select id='status' name='status' value='$chamado[status]'>
+                            <option value='$chamado[status]'>$chamado[status]</option>
+                            <option value='Pendente'>Pendente</option>
+                            <option value='Cancelado'>Cancelado</option>
+                            <option value='Em andamento'>Em andamento</option>
+                            <option value='Finalizado'>Finalizado</option>
+                            </select>
+                            <label for='titutulo'>Título:</label>
+                            <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
+                            <label for='descricao'>Descrição:</label>
+                            <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
+                            <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                            </form>
+                            <div class='boxMsg' id='boxMsg'>
+                            </div>
+                            <div class='inputMsg'>
+                            <textarea type='text' class='msgText' id='msgText'></textarea>
+                            <div class='container' >
+                            <button class='sendMsg' id='sendMsg'>Enviar</button>
+                            </div>
+                            </div>
+                        ";
+                    }else{
+                        //caso clique em um chamado diferente de concluído ou finalizado
+                        echo 
+                            "
+                                <form method='POST' action=''>
+                                <label for='status'>Status:</label>
+                                <select id='status' name='status' value='$chamado[status]'>
+                                <option value='$chamado[status]'>$chamado[status]</option>
+                                <option value='Pendente'>Pendente</option>
+                                <option value='Cancelado'>Cancelado</option>
+                                <option value='Em andamento'>Em andamento</option>
+                                <option value='Finalizado'>Finalizado</option>
+                                </select>
+                                <label for='titutulo'>Título:</label>
+                                <input type='text' id='titulo' name='titulo' value='$chamado[titulo]' class='input_text'>
+                                <label for='descricao'>Descrição:</label>
+                                <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'>$chamado[descricao]</textarea>
+                                <input type='hidden' name='chamado_id' value='$chamado[id]'>
+                                <input type='submit' value='Salvar alterações' class='botao'>
+                                </form>
+                                <div class='boxMsg' id='boxMsg'>
+                                </div>
+                                <div class='inputMsg'>
+                                <textarea type='text' class='msgText' id='msgText'></textarea>
+                                <div class='container' >
+                                <button class='sendMsg' id='sendMsg'>Enviar</button>
+                                </div>
+                                </div>
+                            ";
+                    }
+
+                }else{
+                    echo
+                        "
+                            <form method='POST' action=''>
+                                <label for='titutulo'>Título:</label>
+                                <input type='text' id='titulo' name='titulo' class='input_text'>
+                                <label for='descricao'>Descrição:</label>
+                                <textarea name='descricao' id='descricao' cols='30' rows='10' class='text_area'></textarea>
+                                <input type='submit' value='Cadastrar' class='botao'>
+                            </form>
+                        "; 
+                    
+                }    
+            ?>
+        </div>
+
     </div>
     <script>
         var valor = document.getElementById("status").value;
@@ -150,21 +189,3 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     </script>
 </body>
 </html>
-
-<style>
-
-    label, input {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-   
-    button{
-        margin-bottom: 10px;
-    }
-
-    select{
-        margin-bottom: 10px;
-    }
-    
-</style>

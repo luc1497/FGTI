@@ -1,0 +1,320 @@
+@font-face {
+    font-family: 'Louis George Cafe Light';
+    src: url('../fonts/Louis\ George\ Cafe\ Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Louis George Cafe';
+    src: url('../fonts/Louis\ George\ Cafe.ttf') format('truetype');
+}
+
+body{
+    font-family: Louis George Cafe, sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(197, 197, 197, 0.568);
+}
+.back{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: start;
+    padding: 0px;
+    margin: 0px;
+    flex-direction: column;
+}
+
+.card{
+    font-weight: bold;
+    color: azure;
+    transition-duration: 0.3s;
+    display: flex;
+    background-color: rgb(94, 196, 255);
+    padding: 10px;
+    border-radius: 2px;
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+    
+
+}
+
+.card:hover{
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.65);
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+.input_text{
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.699);
+    margin-top: 0;
+    
+}
+
+.input_text:focus{
+
+    outline: none;
+    text-align: center;
+    
+}
+
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+button{
+    width: 100px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+
+select{
+    margin-bottom: 10px;
+}
+
+.botao{
+    margin-top: 10px;
+    transition: ease;
+    transition-duration: 0.3s;
+    background-color: azure;
+    outline: none;
+    width: 100%;
+    height: 35px;
+    border: none;
+    color: rgb(94, 196, 255);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.botao:hover{
+    cursor: pointer;
+    border: 3px solid;
+    background-color: rgb(94, 196, 255);
+    border-color: azure;
+    color: azure;
+}
+
+.text_area{
+    display: block;
+    width: 100%;
+    height: 50%;
+    border: none;
+    border-radius: 1px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.699);
+    margin-top: 0;
+
+}
+
+.text_area:focus{
+
+    outline: none;
+    
+    
+}
+
+form{
+
+    width: 90%;
+    
+    margin-top: 10%;
+    margin-bottom: 40px;
+}
+
+.voltar{
+    margin-top: 10px;
+    transition: ease;
+    transition-duration: 0.3s;
+    background-color: rgb(94, 196, 255);
+    outline: none;
+    width: 100%;
+    height: 35px;
+    border: none;
+    color: azure;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+
+.voltar:hover{
+    cursor: pointer;
+    border: 3px solid;
+    background-color: azure;
+    border-color: rgb(94, 196, 255);
+    color: rgb(94, 196, 255);
+}
+
+a{
+    display: flex;
+    padding: 0;
+    color: azure;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+a:hover{
+    color: rgb(94, 196, 255);;
+}
+
+.top{
+    width: 25%;
+}
+
+.boxMsg{
+    border-radius: 2px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.24);
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    border: 1px solid;
+    border-color: rgba(56, 56, 56, 0.726);
+    flex-direction: column;
+}
+
+.linhaleft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60px;
+    justify-content: center;
+    align-items: start;
+    
+    
+}
+
+.linharight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* min-height: 60px; */
+    justify-content: center;
+    align-items: end;
+    
+}
+
+.rightMsg{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    /* min-height: 25px; */
+    justify-content: left;
+    align-items: start;
+    background-color: rgb(34, 182, 132);
+    min-width: 75px;
+    max-width: 250px;
+}
+
+.leftMsg{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    min-height: 25px;
+    justify-content: left;
+    align-items: start;
+    background-color: rgb(66, 66, 66);
+    min-width: 75px;
+    max-width: 250px;
+}
+
+.inputMsg{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.txt{
+    max-width: 100%;
+    word-wrap: break-word;
+    
+}
+
+.msgText{
+    border-radius: 2px;
+    width: 80%;
+    height: 100%;
+    border: none;
+    border-radius: 1px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.699);
+
+}
+
+.msgText:focus{
+    outline: none;
+}
+
+
+
+.sendMsg{
+    text-align: center;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+.sendMsg:hover{
+    cursor: pointer;
+}
+
+.container{
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+
+
+@media(max-width: 1200px){
+    .card{
+        width: 35%;
+        
+    }
+
+    .top{
+        width: 35%;
+    }
+}
+
+   
+    
+@media(max-width: 768px){
+    .card{
+        width: 80%;
+        
+    }
+
+    .top{
+        width: 80%;
+    }
+
+    
+}

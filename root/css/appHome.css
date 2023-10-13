@@ -1,4 +1,15 @@
+@font-face {
+    font-family: 'Louis George Cafe Light';
+    src: url('../fonts/Louis\ George\ Cafe\ Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Louis George Cafe';
+    src: url('../fonts/Louis\ George\ Cafe.ttf') format('truetype');
+}
+
 body{
+    font-family: Louis George Cafe, sans-serif;
     margin: 0px;
 }
 .back{
@@ -6,24 +17,29 @@ body{
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: rgba(44, 43, 43, 0.568);
+    background-color: rgba(197, 197, 197, 0.568);
 }
 
 
 .card{
+    transition-duration: 0.3s;
     display: flex;
-    height: 25vh;
-    width: 20vh;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.438);
-    border-radius: 10px;
-    background-color: rgba(47, 20, 110, 0.685);
-    margin-right: 10px;
+    background-color: rgb(94, 196, 255);
+    padding: 1.5%;
+    border-radius: 2px;
+    backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    width: 15%;
+    height: 50%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+    margin: 10px;
 }
+
 .card:hover{
-    outline: 1px solid rgba(0, 0, 0, 0.705);
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.65);
+    margin-top: 1px;
 }
 
 nav{
@@ -38,13 +54,19 @@ nav{
 }
 
 a{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    flex-direction: column;
     color: white;
-    padding: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-p{
+.nav_text{
     
     
     color: white;
@@ -96,4 +118,22 @@ p{
 
 .nav_item_right:hover{
     background-color: #cfcfcf54;
+}
+h1{
+    font-size: 130%;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media(max-width: 768px){
+    
+    .back{
+        flex-direction: column;
+    }
+
+    .card{
+        width: 50%;
+    }
+
 }
