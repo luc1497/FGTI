@@ -1,10 +1,10 @@
 <?php
-$servidor = "containers-us-west-149.railway.app";
-$userbd = "root";
-$porta = "6153";
-$senhabd = "jGDl6kTLQ2RLNKdzuxsh";
-$bancodedados = "railway";
 
-$conectar = new mysqli($servidor, $userbd, $senhabd, $bancodedados, $porta);
+$bdhost = "srv883.hstgr.io";
+$loginbd = "u565999661_root";
+$senhabd = "Leiloes3000pb*";
+$bdname = "u565999661_xaropin";
+
+$conectar = new mysqli($bdhost, $loginbd, $senhabd, $bdname);
 
 ?>
