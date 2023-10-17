@@ -43,7 +43,7 @@ body{
     padding: 0;
     transition: 0.5s;
     background-color: rgb(27, 24, 24);
-    width: 300px;
+    width: 42px;
     box-shadow: 3px 0px 5px rgba(7, 7, 7, 0.568);
     
 }
@@ -57,6 +57,7 @@ body{
     padding: 10px;
     box-sizing: border-box;
     transition: 0.1s;
+    
 }
 
 .leftBarContainer{
@@ -69,6 +70,7 @@ body{
     padding: 10px;
     box-sizing: border-box;
     transition: 0.1s;
+    opacity: 0;
 }
 
 .leftBarContainer:hover{

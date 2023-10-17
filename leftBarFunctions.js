@@ -2,7 +2,7 @@ function cadastroInner(){
     
         var cadastroInner = document.getElementById("cadastroInner");
 
-        if(cadastroInner.style.height == "0px"){
+        if(cadastroInner.style.height != "140px"){
             cadastroInner.style.height = "140px";
             
         }else{

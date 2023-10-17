@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function(){
             container.forEach(container =>{
                 container.style.transition = "0.5s";
                 container.style.opacity = "1";
+                // while(document.getElementById("leftBar").style.width != "300px"){
+                //     container.style.transition = "0.5s";
+                // }
                 container.style.transition = "0.1s";
 
             });
@@ -19,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function(){
             container.forEach(container =>{
                 container.style.transition = "0.5s";
                 container.style.opacity = "0";
+                // while(document.getElementById("leftBar").style.width != "42px"){
+                //     container.style.transition = "0.5s";
+                // }
                 container.style.transition = "0.1s";
                 
             });

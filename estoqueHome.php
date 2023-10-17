@@ -15,6 +15,9 @@
            <div class="firstLeftBarContainer">
                <button id="botaoAbrir">></button>
             </div>
+            <div class="leftBarContainer">
+                <p>Bens</p>
+            </div>
             <div class="leftBarContainer" onclick="cadastroInner()">
                <p>Cadastro</p>
                <div id="cadastroInner" class="">
@@ -31,9 +34,13 @@
             <div class="leftBarContainer">
                <p>Contato</p>
             </div>
+            <div class="leftBarContainer">
+               <a href="appHome.php"><p>Sair</p></a>
+            </div>
         </div>
         <div class="containerBack">
-            <h1>Gestão de estoque</h1>
+            <iframe src="listaEstoque.php" width="100%" height="100%" frameborder="0"></iframe> -->
+            <!-- <h1>Gestão de estoque</h1> -->
         </div>
     </div>
    </body>
