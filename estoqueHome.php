@@ -28,6 +28,9 @@
                     </div>
                </div>
             </div>
+            <div class="leftBarContainer">
+               <p>Contato</p>
+            </div>
         </div>
         <div class="containerBack">
             <h1>Gestão de estoque</h1>
