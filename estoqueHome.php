@@ -6,14 +6,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/estoqueHome.css">
     <script src="leftBar.js" ></script>
+    <script src="leftBarFunctions.js" ></script>
 </head>
 <body>
     <nav></nav>
     <div class="back">
         <div id="leftBar" class="leftBar">
-           <div class="leftBarContainer">
+           <div class="firstLeftBarContainer">
                <button id="botaoAbrir">></button>
-           </div>
+            </div>
+            <div class="leftBarContainer" onclick="cadastroInner()">
+               <p>Cadastro</p>
+               <div id="cadastroInner" class="">
+                    <div class="leftBarContainer">
+                        <p class="innerCadastro">Tipos</p>
+
+                    </div>
+                    <div class="leftBarContainer">
+                        <p class="innerCadastro">Marcas/Modelos</p>
+
+                    </div>
+               </div>
+            </div>
         </div>
         <div class="containerBack">
             <h1>Gestão de estoque</h1>
