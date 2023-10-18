@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     var botao = document.getElementById("botaoAbrir");
-    var container = document.querySelectorAll(".leftBarContainer");
+    var container = document.querySelectorAll(".animation");
     console.log(container);
     botao.addEventListener("click", function(){
         if (document.getElementById("leftBar").style.width != "300px"){

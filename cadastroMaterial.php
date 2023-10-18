@@ -149,7 +149,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                         "
                             <form method='POST' action=''>
                                 <label for='tipo'>Tipo:</label>
-                                <select name='tipo'>";
+                                <select name='tipo'>
+                                <option value='selecione'>Selecione</option>
+                                ";
                             while ($tipo = $realizarconsulta->fetch_assoc()){
                                 echo "<option value='$tipo[nome]'>$tipo[nome]</option>";
                             }
@@ -157,7 +159,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                     echo "
                             </select>
                             <label for='marca/modelo'>Marca/Modelo</label>
-                                <select name='marca_modelo'>";
+                                <select name='marca_modelo'>
+                                <option value='selecione'>Selecione</option>
+                                ";
                             while ($marca = $realizarconsulta_marca->fetch_assoc()){
                                     echo "<option value='$marca[nome]'>$marca[nome]</option>";
                             }
@@ -165,13 +169,15 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             </select>
                             <label for='situacao'>Situação</label>
                             <select name='situacao'>
-                            <option value = 'em_uso'>Em uso</option>
-                            <option value = 'Disponível'>Disponível</option>
+                            <option value='selecione'>Selecione</option>
+                            <option value ='Em uso'>Em uso</option>
+                            <option value ='Disponível'>Disponível</option>
                             </select>
                             <label for='conta_corporativa'>Conexão à conta corporativa:</label>
                             <select name='conta_corporativa'>
-                            <option value='sim'>Sim</option>
-                            <option value='nao'>Não</option>
+                            <option value='selecione'>Selecione</option>
+                            <option value='Sim'>Sim</option>
+                            <option value='Não'>Não</option>
                             </select>
                             <label for='usuario'>Usuário</label>
                             <input type='text' name='usuario'>

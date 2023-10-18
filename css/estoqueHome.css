@@ -73,6 +73,20 @@ body{
     opacity: 0;
 }
 
+.cadastroLeftBarContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 70px;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: 0.1s;
+    opacity: 0;
+}
+
+
 .leftBarContainer:hover{
     background-color: rgb(37, 35, 35);
     cursor: pointer;
@@ -96,6 +110,9 @@ a{
 }
 
 
+
+
 .innerCadastro{
+    color: azure;
     display: block;
 }

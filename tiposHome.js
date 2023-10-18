@@ -1,7 +1,9 @@
-function validation(chamadoid, event){
+
+
+function validation(tipoid, event){
     event.preventDefault();
     
-    console.log(chamadoid);
+    console.log(tipoid);
     var validacaoback = document.getElementById("validacaoback");
     validacaoback.style.display = "flex";
     
@@ -17,7 +19,7 @@ function validation(chamadoid, event){
     
     botaosim.addEventListener("click", function(){
         validacaoback.style.display = "none";
-        delete_form = document.getElementById("delete_form" + chamadoid);
+        delete_form = document.getElementById("delete_form" + tipoid);
         delete_form.submit();
         
     })

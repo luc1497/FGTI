@@ -11,18 +11,18 @@ include("conectaBanco.php");
 
     $user_id = $_SESSION['id'];
 
-    $consulta = "SELECT * FROM estoque WHERE user_id = '$user_id' ORDER BY id ASC;";
+    $consulta = "SELECT * FROM tipos_estoque ORDER BY id ASC;";
     $retornodaconsulta = $conectar->query($consulta);
     $qtdresultado = $retornodaconsulta->num_rows;
 
-if (isset($_SESSION['material_id'])){
-    unset($_SESSION['material_id']);
+if (isset($_SESSION['tipo_id'])){
+    unset($_SESSION['tipo_id']);
 }
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
-    $remover = "DELETE FROM estoque WHERE id = '$_POST[material_id]'";
+    $remover = "DELETE FROM tipos_estoque WHERE id = '$_POST[tipo_id]'";
     $conectar->query($remover);
-    header("location: listaEstoque.php");
+    header("location: listaTipos.php");
 
     }  
 
@@ -33,10 +33,10 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque | Home</title>
+    <title>Tipos | Home</title>
     <link rel="stylesheet" href="css/chamadosHome.css">
-    <script src="estoqueHome.js"></script>
-    <script src="estoqueLinhaClick.js"></script>
+    <script src="tiposHome.js"></script>
+    <script src="tiposLinhaClick.js"></script>
 </head>
 <body>
     <nav>
@@ -54,7 +54,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     </nav>
 
     <div class="title">
-        <h1>Estoque</h1>
+        <h1>Materiais / Tipos</h1>
     </div>
     <div class="maindiv">
         <div class="option">
@@ -70,8 +70,8 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 <button class="listaSeletor" id="seletorFinalizados">Finalizados</button>
             </div> -->
             <div class="option_right">
-                <a href="cadastroMaterial.php">
-                        <button class="botao_cadastrar">Cadastrar material</button>
+                <a href="cadastroTipos.php">
+                        <button class="botao_cadastrar">Cadastrar tipos</button>
                 </a>
 
             </div>
@@ -82,45 +82,31 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         <div id="tabela">
             <div id="linhahead">
                 <div class="th"><span>ID</span></div>
-                <div class="th"><span>Tipo</span></div>
-                <div class="th"><span>Marca/Modelo</span></div>
-                <div class="th"><span>Situação</span></div>
-                <div class="th"><span>Usuário ativo</span></div>
-                <div class="th"><span>Conta Corporativa</span></div>
-                <div class="th"><span>Adicionado em</span></div>
+                <div class="th"><span>Nome</span></div>
                 <div class="th"><span>Opções</span></div>
             </div>
             <?php
-                    $consulta = "SELECT * FROM estoque WHERE user_id = '$user_id' ORDER BY id ASC;";
+                    $consulta = "SELECT * FROM tipos_estoque ORDER BY id ASC;";
                     $retornodaconsulta = $conectar->query($consulta);
                     $qtdresultado = $retornodaconsulta->num_rows;
 
-                    while($material = $retornodaconsulta->fetch_assoc()){
+                    while($tipo = $retornodaconsulta->fetch_assoc()){
 
-                        $datahoje = new DateTime();
-                        $datamaterial = new DateTime($material['adicionado_em']);
-                                                
-                        $dataexibir = date_format($datamaterial, 'd/m/Y H:i');
                         
-                        echo "<div class='linha' id='linha$material[id]' value='$material[id]' status='$material[situacao]'>";
-                        echo "<div class='th'>".$material['id']."</div>";
-                        echo "<div class='th'>".$material['tipo']."</div>";
-                        echo "<div class='th'>".$material['marca_modelo']."</div>";
-                        echo "<div class='th'>".$material['situacao']."</div>";
-                        echo "<div class='th'>".$material['usuario_ativo']."</div>";
-                        echo "<div class='th'>".$material['conta_corporativa']."</div>";
-                        echo "<div class='th'>".$dataexibir."</div>";
-                             
+                        
+                        echo "<div class='linha' id='linha$tipo[id]' value='$tipo[id]'>";
+                        echo "<div class='th'>".$tipo['id']."</div>";
+                        echo "<div class='th'>".$tipo['nome']."</div>";
                         echo "
                             <div class='th'>
-                            <form method='POST' action='cadastroMaterial.php' id='editar$material[id]'>
+                            <form method='POST' action='cadastroTipos.php' id='editar$tipo[id]'>
                             <input type='submit' name='editar' value='' class='botao_editar'>
-                            <input type='hidden' name='material_id' value='$material[id]'>
+                            <input type='hidden' name='tipo_id' value='$tipo[id]'>
                             </form>
-                            <div id='excluir$material[id]' class='excluir' value='$material[id]'>
-                            <form method='POST' action='#' onsubmit='return validation($material[id], event);' id='delete_form$material[id]'>
-                            <input type='hidden' name='material_id' value='$material[id]'>
-                            <input type='submit' name='excluir' value='' id='botao_excluir$material[id]' class='botao_excluir' >
+                            <div id='excluir$tipo[id]' class='excluir' value='$tipo[id]'>
+                            <form method='POST' action='#' onsubmit='return validation($tipo[id], event);' id='delete_form$tipo[id]'>
+                            <input type='hidden' name='tipo_id' value='$tipo[id]'>
+                            <input type='submit' name='excluir' value='' id='botao_excluir$tipo[id]' class='botao_excluir' >
                             </form>
                             </div>
                             </div>
