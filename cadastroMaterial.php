@@ -38,14 +38,15 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         $marca_modelo = $_POST['marca_modelo'];
         $situacao = $_POST['situacao'];
         $conta_corporativa = $_POST['conta_corporativa'];
+        $usuario_ativo = $_POST['usuario_ativo'];
         $dataatual = date('Y-m-d H-i-s');
         
     
 
-        $escrita = "INSERT INTO estoque (user_id, tipo, marca_modelo, situacao, conta_corporativa, adicionado_em) VALUES ('$user_id', '$tipo', '$marca_modelo', '$situacao', '$conta_corporativa', '$dataatual')";
+        $escrita = "INSERT INTO estoque (user_id, tipo, marca_modelo, situacao, conta_corporativa, adicionado_em, usuario_ativo) VALUES ('$user_id', '$tipo', '$marca_modelo', '$situacao', '$conta_corporativa', '$dataatual', '$usuario_ativo')";
         $realizarescrita = $conectar->query($escrita);
         
-        $busca = "SELECT * FROM estoque WHERE datacriacao = '$dataatual'";
+        $busca = "SELECT * FROM estoque WHERE adicionado_em = '$dataatual'";
         $retorno = $conectar->query($busca);
         
         
@@ -130,7 +131,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 <option>$material[conta_corporativa]</option>
                                 </select>
                                 <label for='usuario_ativo'>Usuário Ativo:</label>
-                                <input type='texte' value='$material[usuario_ativo]'>
+                                <input type='texte' name='usuario_ativo' value='$material[usuario_ativo]'>
 
                                 <input type='hidden' name='material_id' value='$material[id]'>
                                 <input type='submit' value='Salvar alterações' class='botao'>
@@ -180,7 +181,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                             <option value='Não'>Não</option>
                             </select>
                             <label for='usuario'>Usuário</label>
-                            <input type='text' name='usuario'>
+                            <input type='text' name='usuario_ativo'>
                             <input type='submit' value='Salvar' class='botao'>
                             </form>
                         "; 

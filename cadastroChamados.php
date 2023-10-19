@@ -22,7 +22,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['chamado_id'])){
     }
 
     if(!isset($_POST['chamado_id'])){
-        
+        echo $_SESSION['chamado_id'];
         $busca = "SELECT * FROM chamados WHERE id = '$_SESSION[chamado_id]'";
         $retorno = $conectar->query($busca);
         $chamado = $retorno->fetch_assoc();
