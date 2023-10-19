@@ -54,7 +54,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     </nav>
 
     <div class="title">
-        <h1>Estoque</h1>
+        <h1>Gestão de Estoque</h1>
     </div>
     <div class="maindiv">
         <div class="option">
