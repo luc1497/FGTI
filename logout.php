@@ -3,6 +3,6 @@
     unset($_SESSION['id']);
     unset($_SESSION['nome']);
     unset($_SESSION['email']);
-    header("location: index.php");
+    header("location: index.php"); 
 
 ?>

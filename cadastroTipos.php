@@ -7,6 +7,8 @@ if (!isset($_SESSION['id'])){
 }
 
 include("conectaBanco.php");
+//echo $_POST['tipo_id'];
+//echo $_SESSION['tipo_id'];
 
 //busca o tipo com um post da página anterior.
 if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['tipo_id'])){
@@ -15,17 +17,17 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['tipo_id'])){
     if(isset($_POST['tipo_id'])){
         $tipo_id = $_POST['tipo_id'];
         $_SESSION['tipo_id'] = $tipo_id;
-        $busca = "SELECT * FROM tipos_estoque ORDER BY id ASC";
+        $busca = "SELECT * FROM tipos_estoque WHERE id = $_SESSION[tipo_id]";
         $retorno = $conectar->query($busca);
-        $tipo_id = $retorno->fetch_assoc();
+        $tipo = $retorno->fetch_assoc();
         
     }
 
     if(!isset($_POST['tipo_id'])){
-        
         $busca = "SELECT * FROM tipos_estoque WHERE id = '$_SESSION[tipo_id]'";
         $retorno = $conectar->query($busca);
         $tipo = $retorno->fetch_assoc();
+        
     }
 }
 

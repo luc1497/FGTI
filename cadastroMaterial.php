@@ -7,7 +7,8 @@ if (!isset($_SESSION['id'])){
 }
 
 include("conectaBanco.php");
-
+echo $_POST['material_id'];
+echo $_SESSION['material_id'];
 //busca o material com um post da página anterior.
 if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['material_id'])){
     

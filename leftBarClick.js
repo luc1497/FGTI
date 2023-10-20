@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function(){
                             iframe.src = "listaTipos.php";
                         
                         }
+                        if(link.id == "marcas"){
+                            const iframe = document.getElementById("iframe");
+                            iframe.src = "listaMarcas.php";
+                        
+                        }
 
                     })
                 })

@@ -9,21 +9,20 @@ if (!isset($_SESSION['id'])){
 include("conectaBanco.php");
 
 
-if (isset($_SESSION['tipo_id'])){
-    unset($_SESSION['tipo_id']);
-}
     $user_id = $_SESSION['id'];
 
-    $consulta = "SELECT * FROM tipos_estoque ORDER BY id ASC;";
+    $consulta = "SELECT * FROM marca_modelo ORDER BY id ASC;";
     $retornodaconsulta = $conectar->query($consulta);
     $qtdresultado = $retornodaconsulta->num_rows;
 
-
+if (isset($_SESSION['marca_id'])){
+    unset($_SESSION['marca_id']);
+}
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
-    $remover = "DELETE FROM tipos_estoque WHERE id = '$_POST[tipo_id]'";
+    $remover = "DELETE FROM marca_modelo WHERE id = '$_POST[marca_id]'";
     $conectar->query($remover);
-    header("location: listaTipos.php");
+    header("location: listaMarcas.php");
 
     }  
 
@@ -34,7 +33,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipos | Home</title>
+    <title>Marcas | Home</title>
     <link rel="stylesheet" href="css/chamadosHome.css">
     <script src="tiposHome.js"></script>
     <script src="tiposLinhaClick.js"></script>
@@ -55,7 +54,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     </nav>
 
     <div class="title">
-        <h1>Materiais / Tipos</h1>
+        <h1>Materiais / Marcas</h1>
     </div>
     <div class="maindiv">
         <div class="option">
@@ -71,8 +70,8 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 <button class="listaSeletor" id="seletorFinalizados">Finalizados</button>
             </div> -->
             <div class="option_right">
-                <a href="cadastroTipos.php">
-                        <button class="botao_cadastrar">Cadastrar tipos</button>
+                <a href="cadastroMarcas.php">
+                        <button class="botao_cadastrar">Cadastrar marcas</button>
                 </a>
 
             </div>
@@ -87,28 +86,29 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 <div class="th"><span>Opções</span></div>
             </div>
             <?php
-                    $consulta = "SELECT * FROM tipos_estoque ORDER BY id ASC;";
+                    $consulta = "SELECT * FROM marca_modelo ORDER BY id ASC;";
                     $retornodaconsulta = $conectar->query($consulta);
                     $qtdresultado = $retornodaconsulta->num_rows;
 
-                    while($tipo = $retornodaconsulta->fetch_assoc()){
+                    while($marca = $retornodaconsulta->fetch_assoc()){
 
                         
                         
-                        echo "<div class='linha' id='linha$tipo[id]' value='$tipo[id]'>";
-                        echo "<div class='th'>".$tipo['id']."</div>";
-                        echo "<div class='th'>".$tipo['nome']."</div>";
+                        echo "<div class='linha' id='linha$marca[id]' value='$marca[id]'>";
+                        echo "<div class='th'>".$marca['id']."</div>";
+                        echo "<div class='th'>".$marca['nome']."</div>";
                         echo "
                             <div class='th'>
-                            <form method='POST' action='cadastroTipos.php' id='editar$tipo[id]'>
+                            <form method='POST' action='cadastroMarcas.php' id='editar$marca[id]'>
                             <input type='submit' name='editar' value='' class='botao_editar'>
-                            <input type='hidden' name='tipo_id' value='$tipo[id]'>
-                            <input type='hidden' name='tipo_nome' value='$tipo[nome]'>
+                            <input type='hidden' name='marca_id' value='$marca[id]'>
+                            <input type='hidden' name='marca_nome' value='$marca[nome]'>
+                            <input type='hidden' name='tipo_id' value='$marca[tipo_id]'>
                             </form>
-                            <div id='excluir$tipo[id]' class='excluir' value='$tipo[id]'>
-                            <form method='POST' action='#' onsubmit='return validation($tipo[id], event);' id='delete_form$tipo[id]'>
-                            <input type='hidden' name='tipo_id' value='$tipo[id]'>
-                            <input type='submit' name='excluir' value='' id='botao_excluir$tipo[id]' class='botao_excluir' >
+                            <div id='excluir$marca[id]' class='excluir' value='$marca[id]'>
+                            <form method='POST' action='#' onsubmit='return validation($marca[id], event);' id='delete_form$marca[id]'>
+                            <input type='hidden' name='marca_id' value='$marca[id]'>
+                            <input type='submit' name='excluir' value='' id='botao_excluir$marca[id]' class='botao_excluir' >
                             </form>
                             </div>
                             </div>
