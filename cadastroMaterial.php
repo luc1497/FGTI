@@ -7,9 +7,10 @@ if (!isset($_SESSION['id'])){
 }
 
 include("conectaBanco.php");
-echo $_POST['material_id'];
-echo $_SESSION['material_id'];
+//echo $_POST['material_id'];
+//echo $_SESSION['material_id'];
 //busca o material com um post da página anterior.
+
 if ($_SERVER ['REQUEST_METHOD'] === 'POST' || isset($_SESSION['material_id'])){
     
     
@@ -97,7 +98,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     <title>Material | Cadastro</title>
     <!-- <script src="cadastroChamados.js"></script> -->
     <!-- <script src="chat.js"></script> -->
-    <!-- <script src="get_Mensagens.php"></script> -->
+    <script src="tipoId.js"></script>
     <link rel="stylesheet" href="css/cadastroChamados.css">
 </head>
 <body>
@@ -144,61 +145,68 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                 }else{
                     $consulta = "SELECT * FROM tipos_estoque ORDER BY id";
                     $realizarconsulta = $conectar->query($consulta);
-                    $consulta_marca = "SELECT * FROM marca_modelo ORDER BY id";
-                    $realizarconsulta_marca = $conectar->query($consulta_marca);
-
+                    
+                    
+                    
                     echo
                         "
                             <form method='POST' action=''>
                                 <label for='tipo'>Tipo:</label>
-                                <select name='tipo'>
-                                <option value='selecione'>Selecione</option>
+                                <select name='tipo' id='tipoId'>
+                                <option value='0'>Selecione</option>
                                 ";
-                            while ($tipo = $realizarconsulta->fetch_assoc()){
-                                echo "<option value='$tipo[nome]'>$tipo[nome]</option>";
-                            }
+                                while ($tipo = $realizarconsulta->fetch_assoc()){
+                                    echo "<option value='$tipo[id]'>$tipo[nome]</option>";
+                                }
                                 
-                    echo "
-                            </select>
-                            <label for='marca/modelo'>Marca/Modelo</label>
+                                echo "
+                                </select>
+                                <label for='marca/modelo'>Marca/Modelo</label>
                                 <select name='marca_modelo'>
                                 <option value='selecione'>Selecione</option>
                                 ";
+                                
+                            $recebeDadosJson = file_get_contents("php://input");
+                            $tipo = json_decode($recebeDadosJson);
+                            echo $tipo['id'];
+
+                            
+
+                                                    
+                            $consulta_marca = "SELECT * FROM marca_modelo WHERE tipo_id = '$tipo[id]' ORDER BY id";
+                            $realizarconsulta_marca = $conectar->query($consulta_marca);
                             while ($marca = $realizarconsulta_marca->fetch_assoc()){
                                     echo "<option value='$marca[nome]'>$marca[nome]</option>";
                             }
-                    echo "
-                            </select>
-                            <label for='situacao'>Situação</label>
-                            <select name='situacao'>
-                            <option value='selecione'>Selecione</option>
-                            <option value ='Em uso'>Em uso</option>
-                            <option value ='Disponível'>Disponível</option>
-                            </select>
-                            <label for='conta_corporativa'>Conexão à conta corporativa:</label>
-                            <select name='conta_corporativa'>
-                            <option value='selecione'>Selecione</option>
-                            <option value='Sim'>Sim</option>
-                            <option value='Não'>Não</option>
-                            </select>
-                            <label for='usuario'>Usuário</label>
-                            <input type='text' name='usuario_ativo'>
-                            <input type='submit' value='Salvar' class='botao'>
-                            </form>
-                        "; 
+
+
+
+
+                            
+                //     echo "
+                //             </select>
+                //             <label for='situacao'>Situação</label>
+                //             <select name='situacao'>
+                //             <option value='selecione'>Selecione</option>
+                //             <option value ='Em uso'>Em uso</option>
+                //             <option value ='Disponível'>Disponível</option>
+                //             </select>
+                //             <label for='conta_corporativa'>Conexão à conta corporativa:</label>
+                //             <select name='conta_corporativa'>
+                //             <option value='selecione'>Selecione</option>
+                //             <option value='Sim'>Sim</option>
+                //             <option value='Não'>Não</option>
+                //             </select>
+                //             <label for='usuario'>Usuário</label>
+                //             <input type='text' name='usuario_ativo'>
+                //             <input type='submit' value='Salvar' class='botao'>
+                //             </form>
+                //         "; 
                     
-                }    
+                 }    
             ?>
         </div>
 
     </div>
-    <script>
-        var valor = document.getElementById("status").value;
-        console.log(valor);
-        var select = document.getElementById("status");
-        var opcao = select.querySelector("option[value='"+ valor +"']");
-        console.log(opcao);
-        opcao.style.display = "none";
-    </script>
-</body>
+    </body>
 </html>
