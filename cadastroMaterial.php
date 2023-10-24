@@ -42,10 +42,14 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         $conta_corporativa = $_POST['conta_corporativa'];
         $usuario_ativo = $_POST['usuario_ativo'];
         $dataatual = date('Y-m-d H-i-s');
+
+        $buscaTipo = "SELECT * FROM tipos_estoque WHERE id = '$tipo'";
+        $retornoTipo = $conectar->query($buscaTipo);
+        $tipo2 = $retornoTipo->fetch_assoc();
         
     
 
-        $escrita = "INSERT INTO estoque (user_id, tipo, marca_modelo, situacao, conta_corporativa, adicionado_em, usuario_ativo) VALUES ('$user_id', '$tipo', '$marca_modelo', '$situacao', '$conta_corporativa', '$dataatual', '$usuario_ativo')";
+        $escrita = "INSERT INTO estoque (user_id, tipo, marca_modelo, situacao, conta_corporativa, adicionado_em, usuario_ativo) VALUES ('$user_id', '$tipo2[nome]', '$marca_modelo', '$situacao', '$conta_corporativa', '$dataatual', '$usuario_ativo')";
         $realizarescrita = $conectar->query($escrita);
         
         $busca = "SELECT * FROM estoque WHERE adicionado_em = '$dataatual'";
@@ -162,46 +166,25 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 echo "
                                 </select>
                                 <label for='marca/modelo'>Marca/Modelo</label>
-                                <select name='marca_modelo'>
-                                <option value='selecione'>Selecione</option>
-                                ";
+                                <select name='marca_modelo' id='selectMarca'>
+                                <option value='0'>Selecione</option>
+                                </select>
+                                <label for='situacao'>Situação</label>
+                                <select name='situacao'>
+                                <option value='Em uso'>Em uso</option>
+                                <option value='Disponível'>Disponível</option>
+                                </select>
+                                <label for='conta_corporativa'>Conectado à conta corporativa?</label>
+                                <select name='conta_corporativa'>
+                                <option value='Sim'>Sim</option>
+                                <option value='Não'>Não</option>
+                                </select>
+                                <label for='usuario'>Usuário Ativo</label>
+                                <input type='text' name='usuario_ativo'>
+                                <input type='submit' value='Salvar' class='botao'>
                                 
-                            $recebeDadosJson = file_get_contents("php://input");
-                            $tipo = json_decode($recebeDadosJson);
-                            echo $tipo['id'];
-
-                            
-
-                                                    
-                            $consulta_marca = "SELECT * FROM marca_modelo WHERE tipo_id = '$tipo[id]' ORDER BY id";
-                            $realizarconsulta_marca = $conectar->query($consulta_marca);
-                            while ($marca = $realizarconsulta_marca->fetch_assoc()){
-                                    echo "<option value='$marca[nome]'>$marca[nome]</option>";
-                            }
-
-
-
-
-                            
-                //     echo "
-                //             </select>
-                //             <label for='situacao'>Situação</label>
-                //             <select name='situacao'>
-                //             <option value='selecione'>Selecione</option>
-                //             <option value ='Em uso'>Em uso</option>
-                //             <option value ='Disponível'>Disponível</option>
-                //             </select>
-                //             <label for='conta_corporativa'>Conexão à conta corporativa:</label>
-                //             <select name='conta_corporativa'>
-                //             <option value='selecione'>Selecione</option>
-                //             <option value='Sim'>Sim</option>
-                //             <option value='Não'>Não</option>
-                //             </select>
-                //             <label for='usuario'>Usuário</label>
-                //             <input type='text' name='usuario_ativo'>
-                //             <input type='submit' value='Salvar' class='botao'>
-                //             </form>
-                //         "; 
+                                ";   
+        
                     
                  }    
             ?>

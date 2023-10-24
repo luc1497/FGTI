@@ -14,7 +14,10 @@ $i=0;
 
 while($marca = $retorno->fetch_assoc()){
     $i = $i + 1;
-    $reposta[$i] = $marca['id'] ;
+    $reposta[$i] = [     
+        'nome' => $marca['nome'],
+        'id' => $marca['id']
+    ];
    
 
     
