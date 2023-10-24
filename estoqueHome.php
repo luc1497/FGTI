@@ -16,12 +16,25 @@ include("conectaBanco.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/estoqueHome.css">
+    <link rel="stylesheet" href="css/nav.css">
     <script src="leftBar.js" ></script>
     <script src="leftBarFunctions.js" ></script>
     <script src="leftBarClick.js" ></script>
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <div class="nav_left">
+            <div class="nav_item_left">
+                <p class="nav_text"><?php echo $_SESSION['nome'];?></p>
+            </div>    
+        </div>
+        
+        <div class="nav_right">
+            <div class="nav_item_right">
+                <a href="logout.php" style="color:azure; display:inline; height:50%">Logout</a>
+            </div>
+        </div>    
+    </nav>
     <div class="back">
         <div id="leftBar" class="leftBar">
            <div class="firstLeftBarContainer">

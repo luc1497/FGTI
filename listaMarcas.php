@@ -39,21 +39,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
     <script src="tiposLinhaClick.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="nav_left">
-            <div class="nav_item_left">
-                <p class="nav_text"><?php echo $_SESSION['nome'];?></p>
-            </div>    
-        </div>
-        
-        <div class="nav_right">
-            <div class="nav_item_right">
-                <a href="logout.php" style="color:azure; display:inline; height:50%">Logout</a>
-            </div>
-        </div>    
-    </nav>
-
-    <div class="title">
+       <div class="title">
         <h1>Materiais / Marcas</h1>
     </div>
     <div class="maindiv">
