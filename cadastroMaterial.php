@@ -71,14 +71,20 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 //caso o material já exista, ele apenas atualiza título e descrição
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         if(isset($_POST['material_id']) && isset($_POST['tipo']) ){
-
-        $status = $_POST['status'];  
+        $user_name = $_SESSION['nome'];
         $user_id = $_SESSION['id'];
-        $titulo = $_POST['titulo'];
-        $descricao = $_POST['descricao'];
+        $tipo = $_POST['tipo'];
+        $marca_modelo = $_POST['marca_modelo'];
+        $situacao = $_POST['situacao'];
+        $conta_corporativa = $_POST['conta_corporativa'];
+        $usuario_ativo = $_POST['usuario_ativo'];
+
+         $buscaTipo = "SELECT * FROM tipos_estoque WHERE id = '$tipo'";
+        $retornoTipo = $conectar->query($buscaTipo);
+        $tipo2 = $retornoTipo->fetch_assoc();
         
     
-        $escrita = "UPDATE material SET titulo = '$titulo', descricao = '$descricao', status = '$status' WHERE id = '$_POST[material_id]'";
+        $escrita = "UPDATE estoque SET tipo = '$tipo2[nome]', marca_modelo = '$marca_modelo', situacao = '$situacao', conta_corporativa = '$conta_corporativa', usuario_ativo = '$usuario_ativo'   WHERE id = '$_POST[material_id]'";
         $realizarescrita = $conectar->query($escrita);
         
         if ($realizarescrita){
@@ -113,7 +119,9 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
         <div class="card">
             <?php
                 if(isset($_SESSION['material_id'])){
-                   
+                    $consulta = "SELECT * FROM tipos_estoque ORDER BY id";
+                    $realizarconsulta = $conectar->query($consulta);
+                    $realizarconsulta2 = $conectar->query($consulta);
                     
                     
                         echo 
@@ -121,11 +129,32 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
                                 <form method='POST' action=''>
                                 <p>ID: $material[id]</p>
                                 <label for='status'>Tipo:</label>
-                                <select id='tipo' name='tipo' value='$material[tipo]'>
-                                <option>$material[tipo]</option>
+                                <select id='tipoId' name='tipo'>
+                
+                                ";
+
+                                while ($tipo1 = $realizarconsulta->fetch_assoc()){
+                                    if ($tipo1['nome'] == $material['tipo']){
+                                        echo "<option value='$tipo1[id]'>$tipo1[nome]</option>";
+
+                                    };
+                                    
+                                };
+
+
+
+                                while ($tipo = $realizarconsulta2->fetch_assoc()){
+                                    if ($tipo['nome'] != $material['tipo']){
+                                        echo "<option value='$tipo[id]'>$tipo[nome]</option>";
+
+                                    };
+                                    
+                                };
+                        echo        
+                            "
                                 </select>
                                 <label for='marca_modelo'>Marca/Modelo:</label>
-                                <select id='marca_modelo' name='marca_modelo' value='$material[marca_modelo]'>
+                                <select id='selectMarca' name='marca_modelo' value='$material[marca_modelo]'>
                                 <option>$material[marca_modelo]</option>
                                 </select>
                                 <label for='situacao'>Situação:</label>
